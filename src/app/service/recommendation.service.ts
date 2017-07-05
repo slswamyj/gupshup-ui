@@ -7,14 +7,20 @@ import 'rxjs/add/operator/map';
 export class RecommendationService {
 	constructor(private http:Http) {};
 	result:Observable<any>;
+	circle:Observable<any>;
 
 	getFollow(id:String): Observable<any> {
-		console.log("inside getfollow");
-		console.log("id:"+id);
 		this.result= this.http.get('http://localhost:8081/recommendationservice/recommendation/'+id)
 		.map(response => response.json());
-		console.log("uuuuuuu"+this.result);
+		
 		return this.result;
 		
+	}
+
+	getCircle(id:String): Observable<any> {
+		this.circle = this.http.get('http://localhost:8081/recommendationservice/recommendation/circle/'+id)
+		.map(response => response.json());
+
+		return this.circle;
 	}
 }
