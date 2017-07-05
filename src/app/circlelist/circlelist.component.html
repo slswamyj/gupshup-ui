@@ -1,0 +1,12 @@
+<md-nav-list>
+  <md-list-item>
+  <label>Circles</label>
+  <button type="button" class="btn btn-default btn-circle"(click)="openDialog()">+</button>
+  <!-- <p>{{ selectedOption }}</p> -->
+  
+</md-list-item>
+
+ <md-list-item *ngFor="let items of circle">
+   <button md-button  (click)="selectCircle(items.circleName)">{{items.circleName}}</button>
+ </md-list-item>
+</md-nav-list>

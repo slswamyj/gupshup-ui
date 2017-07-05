@@ -1,0 +1,110 @@
+[{
+    "userName" : "hema",
+    "firstName" : "Hemavathi",
+    "lastName" : "Tamilmaran",
+    "password" : "1234hema",
+    "gender" : "female",
+    "dob" : "30-06-1995",
+    "emailId" : "hemavathi@gmail.com",
+    "contactNo" : "9500496835",
+    "profilePhoto" : "default.jpg",
+    "followingCount" : 0,
+    "following" : [ ]
+},
+
+{
+    "userName" : "sai",
+    "firstName" : "saikumar",
+    "lastName" : "wanth",
+    "password" : "json12334",
+    "gender" : "male",
+    "dob" : "30-06-1994",
+    "emailId" : "json@gmail.com",
+    "contactNo" : "9500499999",
+    "profilePhoto" : "default.jpg",
+    "followingCount" : 0,
+    "following" : [ ]
+},
+{
+    "userName" : "sathish",
+    "firstName" : "sathish",
+    "lastName" : "kumar",
+    "password" : "sathishceo",
+    "gender" : "male",
+    "dob" : "30-06-1991",
+    "emailId" : "santh@gmail.com",
+    "contactNo" : "9876543210",
+    "profilePhoto" : "default.jpg",
+    "followingCount" : 0,
+    "following" : [ ]
+},
+
+{
+    "userName" : "aravinth",
+    "firstName" : "jas",
+    "lastName" : "wanth",
+    "password" : "aravi",
+    "gender" : "male",
+    "dob" : "30-06-1994",
+    "emailId" : "aravi@gmail.com",
+    "contactNo" : "9500499999",
+    "profilePhoto" : "default.jpg",
+    "followingCount" : 0,
+    "following" : [ ]
+},
+
+{
+    "userName" : "Tamilmaran",
+    "firstName" : "Tamilmaran",
+    "lastName" : "wanth",
+    "password" : "tamil",
+    "gender" : "male",
+    "dob" : "30-06-1994",
+    "emailId" : "tamil@gmail.com",
+    "contactNo" : "9500499999",
+    "profilePhoto" : "default.jpg",
+    "followingCount" : 0,
+    "following" : [ ]
+},
+
+{
+    "userName" : "allirani",
+    "firstName" : "allirani",
+    "lastName" : "tamil",
+    "password" : "alli12334",
+    "gender" : "female",
+    "dob" : "30-06-1994",
+    "emailId" : "alli12334@gmail.com",
+    "contactNo" : "9500499999",
+    "profilePhoto" : "default.jpg",
+    "followingCount" : 0,
+    "following" : [ ]
+},
+
+{
+    "userName" : "mouni",
+    "firstName" : "mou",
+    "lastName" : "mounica",
+    "password" : "mouni12334",
+    "gender" : "male",
+    "dob" : "30-06-1994",
+    "emailId" : "mouni@gmail.com",
+    "contactNo" : "9500499999",
+    "profilePhoto" : "default.jpg",
+    "followingCount" : 0,
+    "following" : [ ]
+},
+
+{
+    "userName" : "sachin",
+    "firstName" : "sachin",
+    "lastName" : "tendulkar",
+    "password" : "sachin12334",
+    "gender" : "male",
+    "dob" : "30-06-1994",
+    "emailId" : "sachin@gmail.com",
+    "contactNo" : "9500499999",
+    "profilePhoto" : "default.jpg",
+    "followingCount" : 0,
+    "following" : [ ]
+}]

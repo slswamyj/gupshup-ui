@@ -1,0 +1,21 @@
+<button md-icon-button [mdMenuTriggerFor]="menu">
+  <md-icon>more_vert</md-icon>
+</button>
+<md-menu #menu="mdMenu">
+  <button md-menu-item>
+    <md-icon>account_circle</md-icon>
+    <span>User Profile</span>
+  </button>
+  <button md-menu-item >
+    <md-icon>settings</md-icon>
+    <span>Settings</span>
+  </button>
+  <button md-menu-item >
+    <md-icon>notifications</md-icon>
+    <span>Notifications</span>
+  </button>
+  <button md-menu-item>
+    <md-icon>power_settings_new</md-icon>
+    <span>Sign Out</span>
+  </button>
+</md-menu>

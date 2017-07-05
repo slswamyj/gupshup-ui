@@ -1,0 +1,12 @@
+<md-grid-list cols="5" rowHeight="1:1">
+ <md-grid-tile colspan="5" rowspan="1" id="circleroot">
+   <h1>{{myinbox}} inbox</h1>
+<button md-raised-button (click)=openDialog() >Edit Circle</button>
+<button md-raised-button (click)=deleteCircle()>Delete Circle</button>
+ </md-grid-tile>
+  <md-grid-tile colspan="5" rowspan="3" id="mail">
+      <mailbox></mailbox>
+ </md-grid-tile>
+
+</md-grid-list>
+<post></post>

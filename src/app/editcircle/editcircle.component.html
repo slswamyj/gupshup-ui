@@ -1,0 +1,26 @@
+<form [formGroup]="editcircleform" (ngSubmit)="editCircle()" novalidate>
+<h2>Edit circle</h2>
+ <div class="form-group">
+     <div>
+     <label class="center-block" >GroupName: </label>
+     <input class="form-control" formControlName="Circle" id="circle" readonly>
+     </div>
+     <div>
+       <label class="center-block">Description:</label>
+     <input class="form-control" formControlName="description"  id="desc" readonly>
+     </div>
+     <div>
+       <label class="center-block">Keywords:</label>
+     <input class="form-control" formControlName="keywords">
+ </div>
+ </div>
+ <div><p>Edit the Keywords if you prefer</p></div>
+ <div>
+ 
+ <button type="Submit" md-raised-button
+          (click)="editCircle()">Update</button>
+      <button type="button" md-button
+          (click)="dialogRef.close()">Cancel</button>
+          
+ </div>
+</form>

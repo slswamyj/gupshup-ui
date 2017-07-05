@@ -1,0 +1,45 @@
+[
+ {
+   "circleName":"Stackroute",
+   "circleId":"01",
+   "circleDescription":"Stackroute group",
+   "circleCreatedBy":"Keerthi",
+   "circleCreatedDate":"10/06/17",
+   "keywords":"stack",
+   "members":[
+     {
+   "memberName":"Thanakumar",
+   "memberId":"100",
+   "memberGender":"male"
+   },
+   {
+   "memberName":"Hema",
+   "memberId":"101",
+   "memberGender":"female"
+  }
+]
+ },
+
+ {
+   "circleName":"gupshup",
+   "circleId":"02",
+   "circleDescription":"gupshup group",
+   "circleCreatedBy":"Amar",
+   "circleCreatedDate":"15/06/17",
+   "keywords":"gupshup",
+   "members":[
+   {
+   "memberName":"Charu",
+   "memberId":"103",
+   "memberGender":"female"
+ 
+ },
+ {  
+   "memberName":"Uma",
+   "memberId":"104",
+   "memberGender":"male"
+}
+]
+ 
+}
+]

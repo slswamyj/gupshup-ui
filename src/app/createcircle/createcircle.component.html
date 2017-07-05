@@ -1,0 +1,23 @@
+<form [formGroup]="circleform" (ngSubmit)="createCircle()" novalidate>
+<h2>Create circle</h2>
+<div class="form-group">
+     <label class="center-block">Circle Name:</label>
+      <input class="form-control" formControlName="circleName">
+ </div>
+ <div><p>Circle name should be between 5 to 12 letters</p></div>
+ <div class="form-group">
+     <label class="center-block">Description:</label>
+      <input class="form-control" formControlName="circleDescription">
+ </div>
+ <div><p>Describe the purpose of circle</p></div>
+ <div class="form-group">
+     <label class="center-block">Keywords:</label>
+     <input class="form-control" formControlName="keywords">
+ </div>
+ <div><p>Give some Keywords to find your circle to others</p></div>
+ <div>
+ <button type="Submit" md-raised-button
+          (click)="dialogRef.close()">Submit</button>
+      <button type="button" md-button
+          (click)="dialogRef.close()">Cancel</button>
+          </div></form>

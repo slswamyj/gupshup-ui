@@ -1,0 +1,5 @@
+<md-nav-list>
+<md-list-item *ngFor="let items of members">
+     <button md-button  (click)="selectMember(items.memberName)">{{items.memberName}}</button>
+ </md-list-item>
+</md-nav-list>

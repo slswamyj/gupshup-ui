@@ -1,0 +1,29 @@
+/*.circle
+{
+	background-color:orange;
+}
+.circlemembers
+{
+	background-color: gray;
+}*/
+/*.container{
+	height: 1000px;
+	float: left;
+}*/
+
+#red{
+background-color: #e6ffff;
+/*height:300px;
+width: 100px;*/
+}
+#green{
+background-color: #e6ffff;
+
+/* fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="left"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0"*/
+/*height:300px;
+width: 100px;*/
+}
