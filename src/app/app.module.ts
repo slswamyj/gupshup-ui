@@ -25,7 +25,8 @@ import { CircleService} from './service/circle.service';
 import {MovieAppMaterialModule} from './movie-app-material.module';
 import {EditCircleComponent} from './editcircle/editcircle.component';
 import {DeleteCircleComponent} from './deletecircle/deletecircle.component';
-
+import { RecommendationComponent } from './recommendation/recommendation.component';
+import { RecommendationService } from './service/recommendation.service';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -42,7 +43,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RightPanelComponent,
     MenuComponent,
     EditCircleComponent,
-    DeleteCircleComponent
+    DeleteCircleComponent,
+    RecommendationComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         DeleteCircleComponent
 
     ],
-  providers: [ CircleService],
+  providers: [ CircleService, RecommendationService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

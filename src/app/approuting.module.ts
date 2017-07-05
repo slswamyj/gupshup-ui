@@ -10,6 +10,7 @@ import {PostComponent} from './post/post.component';
 import { ChatboxComponent } from './chatbox/chatbox.component';
 import { MaterialModule } from '@angular/material';
 import { MailboxComponent} from './mailbox/mailbox.component';
+//import { RecommendationComponent } from './recommendation/recommendation.component';
 
 const routes:Routes=[{path:'',component: UserInboxComponent},
 {path:'circleinbox',component: CircleInboxComponent},
