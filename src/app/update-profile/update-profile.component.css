@@ -1,0 +1,20 @@
+h2 {
+	text-align: center;
+}
+#mainDiv {
+	padding-left: 50px;
+}
+/*.alert {
+	color: red;
+}*/
+.profilePhoto {
+	width: 200px;
+	height: 200px;
+}
+.page-header {
+	text-align: left;
+	margin-top: 50px;
+}
+.uploadPhotoDiv {
+	margin-top: 20px;
+}

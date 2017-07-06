@@ -1,0 +1,60 @@
+<div class="mainbody container-fluid">
+	<div class="row">
+		<div style="padding-top:10px;"> </div>
+		<div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="media">
+                        <div align="center">
+                            <img class="img-responsive img-circle profilephoto"
+                            src="{{model.profilePhoto}}">
+                        </div>
+                        <div class="media-body">
+                            <hr>
+                            <h3><strong>Username</strong></h3>
+                            <p>{{model.userName}}</p>
+                            <hr>
+                            <h3><strong>Gender</strong></h3>
+                            <p>{{model.gender}}</p>
+                            <hr>
+                            <h3><strong>Birthday</strong></h3>
+                            <p>{{model.dob}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <span>
+                        <h1 class="panel-title pull-left" style="font-size:30px;">{{model.firstName}} {{model.lastName}} </h1>
+                        <div class="dropdown pull-right">
+                            <button class="btn btn-primary" type="button" id="dropdownMenu1" aria-haspopup="true" aria-expanded="true"
+                            [routerLink]="['/updateprofile']">
+                            Edit Profile</button>
+                        </div>
+                    </span>
+
+
+                    <br><br>
+
+                    <i class="fa fa-check text-success" aria-hidden="true"></i>&nbsp;{{model.emailId}} 
+                        
+                    
+                    <br><br><hr>
+                    <span class="pull-left">
+                        <a href="#" class="btn btn-link" style="text-decoration:none;"><i class="fa fa-comments" aria-hidden="true"></i> comments</a>
+                        <a href="#" class="btn btn-link" style="text-decoration:none;"><i class="fa fa-users" aria-hidden="true"></i> following <span class="badge">{{model.followingCount}}</span></a>
+                        
+                    </span>
+                </div>
+            </div>
+            <hr>
+            
+           </div>
+           </div>
+            
+        </div>
+        

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router }    from '@angular/router';
 
 @Component({
   selector: 'search-bar',
@@ -7,4 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBarComponent  {
    private brandName = 'GupShup';
+   constructor(private router: Router) {}
+
+	search(username: string) {
+		
+		this.router.navigate(['userprofile', username]);	
+	}
 }

@@ -1,27 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdDialogModule,MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdInputModule} from '@angular/material';
+import { MdButtonModule, MdDialogModule,MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdInputModule, MaterialModule} from '@angular/material';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     MdButtonModule,
+    MdDialogModule,
     MdMenuModule,
     MdCardModule,
     MdToolbarModule,
     MdIconModule,
     MdInputModule,
-    MdDialogModule
+    MaterialModule
+    
   ],
   exports: [
     BrowserAnimationsModule,
     MdButtonModule,
+    MdDialogModule,
     MdMenuModule,
     MdCardModule,
     MdToolbarModule,
     MdIconModule,
     MdInputModule,
-    MdDialogModule
+    MaterialModule
  ]
 })
-export class MovieAppMaterialModule { }
+export class GupshupAppMaterialModule { }

@@ -1,35 +1,33 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './approuting.module';
-import {RightPanelComponent} from './rightpanel/rightpanel.component';
-import { FlexLayoutModule } from "@angular/flex-layout";
-import {LeftPanelComponent} from './leftpanel/leftpanel.component';
-import {SearchBarComponent} from './search-bar/search-bar.component';
-import { MaterialModule } from '@angular/material';
-import { MenuComponent } from './menu/menu.component'
-import { Routes,RouterModule} from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule, routing, appRoutingProviders } from './app-routing.module';
 import { HttpModule } from '@angular/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdInputModule} from '@angular/material';
-
-import { CircleListComponent } from './circlelist/circlelist.component';
-import { UserListComponent } from './userlist/userlist.component';
-
-import { UserDashboardComponent } from './userdashboard/userdashboard.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GupshupAppMaterialModule } from './gupshup-app-material.module';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AppComponent } from './app.component';
+import { RightPanelComponent} from './rightpanel/rightpanel.component';
+import { LeftPanelComponent } from './leftpanel/leftpanel.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { MenuComponent } from './menu/menu.component'
+import { CircleListComponent } from './circlelist/circlelist.component';
+import { UserListComponent } from './userlist/userlist.component';
+import { UserDashboardComponent } from './userdashboard/userdashboard.component';
+import { EditCircleComponent } from './editcircle/editcircle.component';
+import { DeleteCircleComponent } from './deletecircle/deletecircle.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { CircleInboxComponent } from './circleinbox/circleinbox.component';
+import { UserInboxComponent } from './userinbox/userinbox.component';
+import { CreateCircle } from './createcircle/createcircle.component';
+import { PostComponent} from './post/post.component';
+import { ChatboxComponent } from './chatbox/chatbox.component';
+import { MailboxComponent} from './mailbox/mailbox.component';
 
 import { CircleService} from './service/circle.service';
-import {MovieAppMaterialModule} from './movie-app-material.module';
-import {EditCircleComponent} from './editcircle/editcircle.component';
-import {DeleteCircleComponent} from './deletecircle/deletecircle.component';
-import { RecommendationComponent } from './recommendation/recommendation.component';
-import { RecommendationService } from './service/recommendation.service';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { UserProfileService } from './service/user-profile.service';
+import { UpdateProfileService } from './service/update-profile.service';
 
 
 @NgModule({
@@ -44,31 +42,37 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MenuComponent,
     EditCircleComponent,
     DeleteCircleComponent,
-    RecommendationComponent
+    UserProfileComponent,
+    UpdateProfileComponent,
+    CircleInboxComponent,
+    UserInboxComponent,
+    CreateCircle,
+    PostComponent,
+    ChatboxComponent,
+    MailboxComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    routing,
+    ReactiveFormsModule,
     FormsModule,
   	HttpModule,
-  	BrowserAnimationsModule,
+    GupshupAppMaterialModule,
     FlexLayoutModule,
-    MaterialModule,
-    MdButtonModule,
-     MdCardModule, 
-     MdMenuModule, 
-     MdToolbarModule, 
-     MdIconModule, 
-     MdInputModule,
-     AppRoutingModule,
-    ReactiveFormsModule
-   
+       
   ],
   entryComponents: [
-        EditCircleComponent,
-        DeleteCircleComponent
+    EditCircleComponent,
+    DeleteCircleComponent
 
     ],
-  providers: [ CircleService, RecommendationService],
+  providers: [ 
+    appRoutingProviders,
+    CircleService,
+    UserProfileService,
+    UpdateProfileService
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
