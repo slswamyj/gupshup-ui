@@ -52,7 +52,6 @@ constructor(
      });
     
    	}
-   
 
   openDialog() {
     this.dialog.open(EditCircleComponent, {

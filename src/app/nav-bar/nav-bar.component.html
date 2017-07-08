@@ -2,10 +2,11 @@
   <span>{{ brandName}}</span>
   <button md-button [routerLink]="['/userdashboard']">Home</button>
   <button md-button>About</button>
-  <md-input-container class="example-full-width">
+  <!-- <md-input-container class="example-full-width">
     <input mdInput placeholder="Search" #username>
   </md-input-container>
-  <button md-button (click)=search(username.value)>Go</button>
+  <button md-button (click)=search(username.value)>Go</button> -->
+  <button md-button [routerLink]="['/search']">Explore</button>
   <span class="example-spacer"></span>
   <menu></menu>
 </md-toolbar>

@@ -9,7 +9,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { AppComponent } from './app.component';
 import { RightPanelComponent} from './rightpanel/rightpanel.component';
 import { LeftPanelComponent } from './leftpanel/leftpanel.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MenuComponent } from './menu/menu.component'
 import { CircleListComponent } from './circlelist/circlelist.component';
 import { UserListComponent } from './userlist/userlist.component';
@@ -21,14 +21,14 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 import { CircleInboxComponent } from './circleinbox/circleinbox.component';
 import { UserInboxComponent } from './userinbox/userinbox.component';
 import { CreateCircle } from './createcircle/createcircle.component';
-import { PostComponent} from './post/post.component';
+import { PostComponent } from './post/post.component';
 import { ChatboxComponent } from './chatbox/chatbox.component';
-import { MailboxComponent} from './mailbox/mailbox.component';
+import { MailboxComponent } from './mailbox/mailbox.component';
+import { SearchComponent } from './search/search.component';
 
 import { CircleService} from './service/circle.service';
 import { UserProfileService } from './service/user-profile.service';
 import { UpdateProfileService } from './service/update-profile.service';
-
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { UpdateProfileService } from './service/update-profile.service';
     CircleListComponent,
     UserListComponent,
     LeftPanelComponent,
-    SearchBarComponent,
+    NavBarComponent,
     UserDashboardComponent,
     RightPanelComponent,
     MenuComponent,
@@ -49,7 +49,8 @@ import { UpdateProfileService } from './service/update-profile.service';
     CreateCircle,
     PostComponent,
     ChatboxComponent,
-    MailboxComponent
+    MailboxComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -59,14 +60,12 @@ import { UpdateProfileService } from './service/update-profile.service';
     FormsModule,
   	HttpModule,
     GupshupAppMaterialModule,
-    FlexLayoutModule,
-       
+    FlexLayoutModule
   ],
   entryComponents: [
     EditCircleComponent,
     DeleteCircleComponent
-
-    ],
+  ],
   providers: [ 
     appRoutingProviders,
     CircleService,

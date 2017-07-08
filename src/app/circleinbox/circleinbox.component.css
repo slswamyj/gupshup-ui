@@ -1,10 +1,7 @@
-h2{
-	
+h2 {
 	text-transform: uppercase;
-	
 }
-button
-{
+button {
 	display: inline;
 	margin-left: 30px;
 	padding-left: 10px;
@@ -12,15 +9,16 @@ button
 	margin-bottom: 20px;
 	border-radius: 12px;
 }
-#circleroot{
+#circleroot {
 	/*background-color: #e5fffb;*/
 }
-#mail{
+#mail {
 	/*background-color: green;*/
 }
-#post{
+#post {
 	background-color: red;
 }
-p{
+p {
 	background-color: orange;
 }
+

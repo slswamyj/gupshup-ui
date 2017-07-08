@@ -11,5 +11,9 @@
 	padding-left: 0;
 }
 #recommendation{
-background-color: pink;
+	background-color: pink;
+}
+md-grid-list {
+	line-height: 0px;
+	
 }
