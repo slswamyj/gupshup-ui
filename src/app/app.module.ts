@@ -22,13 +22,13 @@ import { CircleInboxComponent } from './circleinbox/circleinbox.component';
 import { UserInboxComponent } from './userinbox/userinbox.component';
 import { CreateCircle } from './createcircle/createcircle.component';
 import { PostComponent} from './post/post.component';
-import { ChatboxComponent } from './chatbox/chatbox.component';
+import { ChatBoxComponent } from './chatbox/chatbox.component';
 import { MailboxComponent} from './mailbox/mailbox.component';
 
 import { CircleService} from './service/circle.service';
 import { UserProfileService } from './service/user-profile.service';
 import { UpdateProfileService } from './service/update-profile.service';
-
+import { StompService } from 'ng2-stomp-service';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,7 @@ import { UpdateProfileService } from './service/update-profile.service';
     UserInboxComponent,
     CreateCircle,
     PostComponent,
-    ChatboxComponent,
+    ChatBoxComponent,
     MailboxComponent
   ],
   imports: [
@@ -71,7 +71,8 @@ import { UpdateProfileService } from './service/update-profile.service';
     appRoutingProviders,
     CircleService,
     UserProfileService,
-    UpdateProfileService
+    UpdateProfileService,
+    StompService
   ],
   bootstrap: [ AppComponent ]
 })
