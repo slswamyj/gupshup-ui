@@ -4,10 +4,6 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Subject }    from 'rxjs/Subject';
 import { Circle } from '../model/Circle';
-//import { Injectable } from '@angular/core';
-//import { Http } from '@angular/http';
-//import { Subject }    from 'rxjs/Subject';
-//import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -15,7 +11,13 @@ import 'rxjs/add/operator/catch';
 export class CircleService {
 
     private selectCircleSource = new Subject<string>();
-    private selectMemberSource = new Subject<string>(); 
+    private selectMemberSource = new Subject<string>();
+    private chatMessageSource = new Subject<string>();
+
+    private uname : string;
+    private msg : string;
+    private message: string;
+    
     constructor(private http: Http) {
 
     }
@@ -23,14 +25,19 @@ export class CircleService {
     // Observable string streams
     circleSelected$ = this.selectCircleSource.asObservable();
     memberSelected$ = this.selectMemberSource.asObservable();
+    chatMessages$ = this.chatMessageSource.asObservable();
+
+    public setMessage(message: string) {
+        this.chatMessageSource.next(message);
+    }
 
     public selectCircle(circle: string) {
         this.selectCircleSource.next(circle);
     }
 
-    public selectMember(member: string) {
-        this.selectMemberSource.next(member);
-    }
+    // public selectMember(member: string) {
+    //     this.selectMemberSource.next(member);
+    // }
 
     public getCircles(): Observable<any> {
         console.log("update");
@@ -73,6 +80,7 @@ export class CircleService {
         return this.http.get("assets/userlist.json")
         .map((res:any) => res.json());
     }
+    
     getMemberinbox(member:string)
     { 
         return Observable.of(member);
@@ -81,9 +89,34 @@ export class CircleService {
     { 
         return Observable.of(circle);
     }
-    
+    getUserName(name:string)
+    {
+        //console.log("getusername");
+        this.uname=name;
+        //console.log(this.uname);
+         return this.uname;
+    }
+    getMsg(message:string)
+    {
+       
+        this.msg=message;
+         console.log("get msg in service"+this.msg);
+         //this.sendMsg();
+         return this.msg;
+       
+    }
+    sendUserName()
+    {
+        console.log("nameeeee"+this.uname);
+        return this.uname;
+    }
+    sendMsg()
+    {
+        console.log("send msg in service"+this.msg);
+        return this.msg;
+    }
   
- saveCircleIn(circle: Circle) {
+    saveCircleIn(circle: Circle) {
     return this.http.post('http://localhost:8080/circleservice',circle).map((response) => response.json());
   
     }
