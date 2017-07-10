@@ -1,12 +1,79 @@
-<md-nav-list>
+<!-- <md-nav-list>
   <md-list-item>
   <label>Circles</label>
-  <button type="button" class="btn btn-default btn-circle"(click)="openDialog()">+</button>
+  <button type="button" class="btn btn-default btn-circle"(click)="openDialog()">+</button> -->
   <!-- <p>{{ selectedOption }}</p> -->
   
-</md-list-item>
+<!-- </md-list-item>
 
  <md-list-item *ngFor="let items of circle">
    <button md-button  (click)="selectCircle(items.circleName)">{{items.circleName}}</button>
  </md-list-item>
-</md-nav-list>
+</md-nav-list> -->
+
+<!-- <div class="nav_contents">
+    <h3>Channels</h3>
+    <ul class="primary_nav">
+    	<li *ngFor="let items of circle">
+          <a (click)="selectCircle(items.circleName)">{{items.circleName}}</a>
+        </li>
+        <li>
+          <a href="">Gupshup</a>
+        </li>
+        <li>
+          <a href="">Stackroute</a>
+        </li>
+        <li>
+          <a href="">Gupshup</a>
+        </li>
+    </ul>
+    <p class="showMore"><a href="">Show more...</a></p>
+</div> -->
+
+<div class="channel_list_div">
+    <h5 class="channel_heading">Channnels</h5>
+    <ul class="channel_list"  *ngFor="let items of circle">
+    	<li>
+       		<a (click)="selectCircle(items.circleName)">
+       			<img src="http://4c3f12db975a1c8b62fd-ee282e5b70d98fac94cba689ef7806d7.r43.cf1.rackcdn.com/default_group_normal.png"
+            	class="group_image">&nbsp;&nbsp;&nbsp;{{items.circleName}}
+            </a>
+       	</li>
+    </ul>
+</div>
+
+
+
+
+<!-- <div class="list-group">
+	<button class="list-group-item createCircle" (click)="openDialog()">
+		New Circle&nbsp;&nbsp;
+		<i class="material-icons">group_add</i>
+	</button>
+	<md-divider class="divider"></md-divider>
+	<div *ngFor="let items of circle">
+		<button class="list-group-item circleListItem"
+			(click)="selectCircle(items.circleName)">
+			<i class="material-icons group">people</i>&nbsp;&nbsp;
+			{{items.circleName}}
+		</button>
+ 		<md-divider class="divider"></md-divider>
+		<button class="list-group-item circleListItem"
+			(click)="selectCircle(items.circleName)">
+			<i class="material-icons group">people</i>&nbsp;&nbsp;
+			Wave-19
+		</button>
+		<md-divider class="divider"></md-divider>
+		<button class="list-group-item circleListItem"
+			(click)="selectCircle(items.circleName)">
+			<i class="material-icons group">people</i>&nbsp;&nbsp;
+			General
+		</button>
+		<md-divider class="divider"></md-divider>	
+	</div>
+	<div class="list-group-item">
+		<button>Show more...</button>
+	</div>
+</div> -->
+
+

@@ -1,0 +1,146 @@
+#channel_recommendation_module {
+  background-color: white;
+  margin: 0px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+#channel_recommendation_div {
+
+}
+
+.channel_name_header {
+  text-transform: uppercase;
+  font-size: 15px;
+}
+#group_image_div {
+  padding-right: 0px;
+}
+.group_image {
+  width: 30px;
+  height: 30px;
+  border-radius: 20px 20px 20px 20px;
+}
+#channel_name_div {
+  padding-left: 0px;
+}
+.channel_name {
+  color: #7f919e;
+  font-size: 120%;
+  display: block;
+}
+#group_image_div a {
+  text-decoration: none;
+  cursor: pointer;
+}
+#channel_name_div a {
+  text-decoration: none;
+  cursor: pointer;
+}
+#channel_name_div a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: white;
+  color: #1976d2;
+}
+#group_image_div a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.channel_name_header_line {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.user_name_header_line {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.channel_recomendation_line {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.user_recomendation_line {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+
+
+#user_recommendation_module {
+  background-color: white;
+  margin: 0px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+#user_recommendation_div {
+
+}
+.user_name_header {
+  text-transform: uppercase;
+  font-size: 15px;
+}
+#user_image_div {
+  padding-right: 0px;
+}
+.user_image {
+  width: 30px;
+  height: 30px;
+  border-radius: 20px 20px 20px 20px;
+}
+#user_name_div {
+  padding-left: 0px;
+}
+.user_name {
+  color: #7f919e;
+  font-size: 120%;
+  display: block;
+}
+#user_image_div a {
+  text-decoration: none;
+  cursor: pointer;
+}
+#user_name_div a {
+  text-decoration: none;
+  cursor: pointer;
+}
+#user_name_div a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: white;
+  color: #1976d2;
+}
+#user_image_div a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+/*md-card {*/
+  	/*width: 400px;*/
+    /* Add shadows to create the "card" effect */
+    /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
+    /*box-shadow: 10px 10px grey;
+    transition: 0.3s;
+    background-color: white;
+}
+
+.user-profile-image {
+  background-image: url('http://content.indiainfoline.com/profile_picture/default_profile.png');
+  background-size: cover;
+}
+
+md-card:hover {
+  	/*width: 400px;*/
+    /* Add shadows to create the "card" effect */
+    /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);*/
+/*   box-shadow: 10px 10px white;
+    transition: 0.3s;
+    background-color: #921d4c;
+    color: white;
+}*/

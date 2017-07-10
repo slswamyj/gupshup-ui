@@ -1,4 +1,4 @@
-<md-grid-list cols="5" rowHeight="1:1">
+<!-- <md-grid-list cols="5" rowHeight="1:1">
 	<md-grid-tile colspan="5" rowspan="1" id="circleroot">
    		<h1>{{myinbox}} inbox</h1>
 		<button md-raised-button (click)=openDialog() >Edit Circle</button>
@@ -8,4 +8,46 @@
       	<mailbox></mailbox>
  	</md-grid-tile>
 </md-grid-list>
-<post></post>
+<post></post> -->
+
+<div class="conatiner" id="mainInboxConatiner">
+	<!-- inbox header row  -->
+	<div class="row" id="navbar_row">
+		<div class="col-lg-12" id="navbar_column">
+			<header class="collapse navbar-collapse navbar-default clearfix inboxHeadingDiv">
+			<section class="navbar-text navbar-left clearfix" >
+				<h3><img src="http://4c3f12db975a1c8b62fd-ee282e5b70d98fac94cba689ef7806d7.r43.cf1.rackcdn.com/default_group_normal.png"
+            	class="group_image">&nbsp;&nbsp;
+				{{myinbox}} inbox</h3>
+			</section>
+			<section class="navbar-text navbar-right clearfix iconsEdit">
+				<a (click)=openDialog() class="iconLink">
+					<i class="material-icons">edit</i>
+				</a>
+			</section>
+			<section class="navbar-text navbar-right clearfix iconsDelete">
+				<a (click)=deleteCircle() class="iconLink">
+					<i class="material-icons">delete</i>
+				</a>
+			</section>
+		</header><!--  header end  -->
+		</div>
+	</div><!-- inbox header row end -->
+
+
+	<!-- inbox message row -->
+	<div class="row" id="inboxMessageRow">
+		<div class="col-lg-12" id="inboxMessageDiv">
+		<mailbox></mailbox>
+		</div>
+	</div><!-- inbox message row end -->
+
+
+	<!-- post message row -->
+	<div class="row" id="postMessageRow">
+		<div class="col-lg-12" id="postMessageDiv">
+			<post></post>
+		</div>
+	</div><!-- post message row end -->
+
+</div>

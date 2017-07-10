@@ -13,9 +13,9 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 export class CircleListComponent {
   title="Gupshup";
   circle:string[];
-  result: any;
+  /*result: any;
   selectedOption: string;
-
+*/
   constructor(
     private router: Router,
     private circleservice: CircleService,
@@ -29,10 +29,11 @@ export class CircleListComponent {
       this.router.navigate(['userdashboard/circleinbox',circle]);
     }
 
-    openDialog() {
+/*    openDialog() {
       let dialogRef = this.dialog.open(CreateCircle);
       dialogRef.afterClosed().subscribe(result => {
         this.selectedOption = result;
     });
-  }
+  }*/
 }
+

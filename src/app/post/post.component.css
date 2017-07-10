@@ -1,9 +1,22 @@
-textarea
-{
-	height: 100px;
-    width: 700px;
+.material-icons {
+
 }
-.btn-circle {
+.btn {
+	padding: 0px;
+}
+.input-group-addon {
+
+}
+
+
+/*textarea
+{
+    width: 700px;
+    height: 40px;
+}*/
+
+
+/*.btn-circle {
 	width: 30px;
 	height: 30px;
 	text-align: center;
@@ -11,4 +24,4 @@ textarea
 	font-size: 12px;
 	line-height: 1.428571429;
 	border-radius: 15px;
-}
+}*/

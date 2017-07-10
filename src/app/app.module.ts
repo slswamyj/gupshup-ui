@@ -21,16 +21,15 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 import { CircleInboxComponent } from './circleinbox/circleinbox.component';
 import { UserInboxComponent } from './userinbox/userinbox.component';
 import { CreateCircle } from './createcircle/createcircle.component';
-
 import { SearchComponent } from './search/search.component';
 import { PostComponent} from './post/post.component';
 import { ChatBoxComponent } from './chatbox/chatbox.component';
 import { MailboxComponent} from './mailbox/mailbox.component';
+import { InboxPanelComponent } from './inbox-panel/inbox-panel.component';
 
 import { CircleService} from './service/circle.service';
 import { UserProfileService } from './service/user-profile.service';
 import { UpdateProfileService } from './service/update-profile.service';
-
 import { StompService } from 'ng2-stomp-service';
 
 
@@ -54,7 +53,8 @@ import { StompService } from 'ng2-stomp-service';
     PostComponent,
     SearchComponent,
     ChatBoxComponent,
-    MailboxComponent
+    MailboxComponent,
+    InboxPanelComponent
   ],
   imports: [
     BrowserModule,
