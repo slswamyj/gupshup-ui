@@ -1,5 +1,5 @@
 import { Component, OnInit,Inject } from '@angular/core';
-import { CircleService } from '../service/circle.service';
+import { CircleService } from '../services/circle.service';
 import { Router} from '@angular/router';
 import { ActivatedRoute,Params} from '@angular/router';
 import { StompService } from 'ng2-stomp-service';

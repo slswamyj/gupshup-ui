@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { User } from '../model/User';
-import { UpdateProfileService } from '../service/update-profile.service';
-import { UserProfileService } from '../service/user-profile.service';
+import { UpdateProfileService } from '../services/update-profile.service';
+import { UserProfileService } from '../services/user-profile.service';
 
 @Component({
   selector: 'app-update-profile',

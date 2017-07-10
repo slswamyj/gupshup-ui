@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdDialogModule,MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdInputModule, MaterialModule } from '@angular/material';
+import { MdButtonModule, MdDialogModule,MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdInputModule, MdSnackBarModule, MaterialModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -12,7 +12,8 @@ import { MdButtonModule, MdDialogModule,MdCardModule, MdMenuModule, MdToolbarMod
     MdToolbarModule,
     MdIconModule,
     MdInputModule,
-    MaterialModule
+    MaterialModule,
+    MdSnackBarModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -23,7 +24,8 @@ import { MdButtonModule, MdDialogModule,MdCardModule, MdMenuModule, MdToolbarMod
     MdToolbarModule,
     MdIconModule,
     MdInputModule,
-    MaterialModule
+    MaterialModule,
+    MdSnackBarModule
  ]
 })
 export class GupshupAppMaterialModule { }

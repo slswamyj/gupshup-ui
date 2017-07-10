@@ -26,10 +26,16 @@ import { SearchComponent } from './search/search.component';
 import { PostComponent} from './post/post.component';
 import { ChatBoxComponent } from './chatbox/chatbox.component';
 import { MailboxComponent} from './mailbox/mailbox.component';
+import { HomeContentComponent } from './home-content/home-content.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { NavBarHomeComponent } from './nav-bar-home/nav-bar-home.component';
+import { RegisterComponent } from './register/register.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
-import { CircleService} from './service/circle.service';
-import { UserProfileService } from './service/user-profile.service';
-import { UpdateProfileService } from './service/update-profile.service';
+import { CircleService} from './services/circle.service';
+import { UserProfileService } from './services/user-profile.service';
+import { UpdateProfileService } from './services/update-profile.service';
+import { UserService } from './services/user.service';
 
 import { StompService } from 'ng2-stomp-service';
 
@@ -54,7 +60,12 @@ import { StompService } from 'ng2-stomp-service';
     PostComponent,
     SearchComponent,
     ChatBoxComponent,
-    MailboxComponent
+    MailboxComponent,
+    HomeContentComponent,
+    HomePageComponent,
+    NavBarHomeComponent,
+    RegisterComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +86,7 @@ import { StompService } from 'ng2-stomp-service';
     CircleService,
     UserProfileService,
     UpdateProfileService,
+    UserService,
     StompService
   ],
   bootstrap: [ AppComponent ]

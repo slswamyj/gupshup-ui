@@ -1,0 +1,26 @@
+footer {
+	background-color: #35454f;
+	margin: 0px;
+	height: 150px;
+	text-align: center;
+	padding: 20px;
+	position: absolute;
+	width: 100%;
+}
+
+h3 {
+	color: #f8f8f8;
+}
+
+h5 {
+	color: #e7e7e7;
+}
+
+a {
+	color: #e7e7e7;
+}
+
+#icon {
+	margin-left: 15px;
+}
+

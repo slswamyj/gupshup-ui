@@ -3,7 +3,7 @@ import { Component,Input,Inject } from '@angular/core';
 import { Circle } from '../model/Circle';
 import {Router} from '@angular/router';
 import {ActivatedRoute,Params} from '@angular/router';
-import { CircleService } from '../service/circle.service';
+import { CircleService } from '../services/circle.service';
 import { FormControl, FormGroup,FormBuilder } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CircleService } from '../service/circle.service';
+import { CircleService } from '../services/circle.service';
 import { CreateCircle } from '../createcircle/createcircle.component';
 import { Router } from '@angular/router';
 import { MdDialog, MdDialogRef } from '@angular/material';

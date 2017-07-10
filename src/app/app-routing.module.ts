@@ -10,26 +10,37 @@ import { CreateCircle } from './createcircle/createcircle.component';
 import { PostComponent} from './post/post.component';
 import { ChatBoxComponent } from './chatbox/chatbox.component';
 import { MailboxComponent} from './mailbox/mailbox.component';
+import { RegisterComponent } from './register/register.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { HomeContentComponent } from './home-content/home-content.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { SearchComponent } from './search/search.component';
 
 const routes : Routes = [
-	{ path:'', pathMatch:"full", redirectTo: "userdashboard" },
-	{ path:'', component: UserInboxComponent },
-	{ path:'userdashboard', component: UserDashboardComponent, children: [
-		{ path:'circleinbox',component: CircleInboxComponent },
-		{ path:'circleinbox/:circle',component: CircleInboxComponent },
-		{ path:'chatbox/:name',component: ChatBoxComponent }
+	{ path:'', pathMatch:"full", redirectTo: "gupshup/home" },
+	/*{ path:'', component: UserInboxComponent },*/
+	{ path:'landingpage', component: LandingPageComponent, children: [
+		{ path:'userdashboard', component: UserDashboardComponent, children: [
+			{ path:'circleinbox',component: CircleInboxComponent },
+			{ path:'circleinbox/:circle',component: CircleInboxComponent },
+			{ path:'chatbox/:name',component: ChatBoxComponent }
+		]},
+		{ path:'userprofile',component: UserProfileComponent },
+ 		{ path:'userprofile/:username', component: UserProfileComponent },
+ 		{ path:'updateprofile', component: UpdateProfileComponent },
+ 		{ path:'search', component: SearchComponent }
 	]},
-	
+
+	{ path: 'gupshup', component: HomePageComponent, children: [
+		{ path: 'home', component: HomeContentComponent },
+		{ path: 'register', component: RegisterComponent }
+	] },
+		
 	{ path:'circlememberinbox/:member',component: ChatBoxComponent },
- 	{ path:'createcircle',component: CreateCircle},
- 	{ path:'userprofile',component: UserProfileComponent },
- 	{ path:'userprofile/:username', component: UserProfileComponent },
- 	{ path:'updateprofile', component: UpdateProfileComponent },
- 	{ path:'search', component: SearchComponent }
+ 	{ path:'createcircle',component: CreateCircle}
 ];
 
 @NgModule({
