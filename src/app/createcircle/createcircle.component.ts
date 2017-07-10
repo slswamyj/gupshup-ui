@@ -2,7 +2,7 @@ import { MdDialogRef } from '@angular/material';
 import { Component,Input } from '@angular/core';
 import { Circle } from '../model/Circle';
 
-import { CircleService } from '../service/circle.service';
+import { CircleService } from '../services/circle.service';
 import { FormControl, FormGroup,FormBuilder } from '@angular/forms';
 @Component({
   selector: 'createcircle',

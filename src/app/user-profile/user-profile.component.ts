@@ -2,7 +2,7 @@ import 'rxjs/add/operator/switchMap';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { UserProfileService } from '../service/user-profile.service';
+import { UserProfileService } from '../services/user-profile.service';
 
 @Component({
   selector: 'userprofile',

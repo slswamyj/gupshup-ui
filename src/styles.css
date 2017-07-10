@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
 
 body {
-	font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
-	background: #ebeef2;
+	font-family: Georgia;
+	background-color: white;
+	/*background: #ebeef2;*/
 	color: #7f919e;
+	
 }
-
