@@ -1,19 +1,18 @@
 <div class="row" id="user_data">
-<div class="user_data_div">
-  <div class="col-lg-3 user_image">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0RPebtJzQWUs1L1sP3dnYv5aSq2KTGk4lsKV7-QUdlVH2_D_W" 
-        class="profile_image">
-  </div><!-- user_image column end  -->
-  <div class="col-lg-8 user_name">
-    <h4>Randeep</h4>
-  </div><!-- user_image column end   -->
-</div>
+  <div class="user_data_div">
+    <div class="col-lg-3 user_image">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0RPebtJzQWUs1L1sP3dnYv5aSq2KTGk4lsKV7-QUdlVH2_D_W" 
+          class="profile_image">
+    </div><!-- user_image column end  -->
+    <div class="col-lg-8 user_name">
+      <h4>Randeep</h4>
+    </div><!-- user_image column end   -->
+  </div>
 </div><!-- user data row end -->
 
 <div class="row" id="new_circle_heading_row">
   <div class="col-lg-12" id="new_circle">
-    <a class="create_circle_link" (click)="openDialog()">New Circle&nbsp;&nbsp;
-      <i class="material-icons">group_add</i>
+    <a class="create_circle_link" (click)="openDialog()">Create New Channel
     </a>
   </div>
 </div>
@@ -23,6 +22,7 @@
   <div class="col-lg-12" id="channel_list_column">
     <circlelist></circlelist>
   </div>
+  <span class="showMoreLink"><a>show more...</a></span>
 </div><!-- channels row end  -->
 
 
@@ -30,58 +30,8 @@
   <div class="col-lg-12" id="user_list_column">
     <userlist></userlist>
   </div>
+  <span class="showMoreLink"><a>show more...</a></span>
 </div><!-- members row end  -->
 
 
 
-<!-- <nav id="side_nav">
-  <div id="side_nav_contents"> -->
-      <!-- <div id="user_menu_contents"> -->
-        <!-- <div id="newCircleDiv">
-          <a (click)="openDialog()">New Circle&nbsp;&nbsp;
-            <i class="fa fa-plus" aria-hidden="true"></i>
-            <i class="fa fa-users" aria-hidden="true"></i>
-          </a>
-        </div> --><!-- user_menu_image end -->
-        <!-- <h3>Signed in as</h3>
-        <span id="user_member_name">randeep18</span> -->
-      <!-- </div> --><!-- user_menu_contents end -->
-    <!-- </div> --><!-- user_menu end -->
-
-
-    <!-- <circlelist></circlelist> -->
-
-    <!-- <userlist></userlist> -->
-
-  <!-- </div> --><!-- side_nav_contents end -->
-<!-- </nav> --><!-- side_nav end -->
-
-
-
- <!-- <div id="circlelist">
-        <circlelist></circlelist>
-</div>  -->
-
-<!-- <div id="green">
-        <memberlist-root></memberlist-root>
-</div> -->
-
- <!-- <div class="container"
-     fxLayout
-     fxLayout.xs="column"
-     fxLayoutAlign="left"
-     fxLayoutGap="10px"
-     fxLayoutGap.xs="0">
-  <div class="circlemembers" fxFlex>
-</div>
-</div>
- -->
- <!-- <md-grid-list rows="2">
-
-  <md-grid-tile id="circleroot">
-    <circlelist-root></circlelist-root>
-  </md-grid-tile>
-  <md-grid-tile id="member">
-    <memberlist-root></memberlist-root>
-  </md-grid-tile>
-  </md-grid-list> -->

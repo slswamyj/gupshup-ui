@@ -1,7 +1,7 @@
 #channel_recommendation_module {
   background-color: white;
   margin: 0px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   transition: 0.3s;
 }
 #channel_recommendation_div {
@@ -70,7 +70,7 @@
   background-color: white;
   margin: 0px;
   margin-top: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   transition: 0.3s;
 }
 #user_recommendation_div {
@@ -114,33 +114,33 @@
   text-decoration: none;
   cursor: pointer;
 }
-
-
-
-
-
-
-
-/*md-card {*/
-  	/*width: 400px;*/
-    /* Add shadows to create the "card" effect */
-    /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
-    /*box-shadow: 10px 10px grey;
-    transition: 0.3s;
-    background-color: white;
+.joinLink {
+  float: right;
+  margin-right: 20px;
 }
-
-.user-profile-image {
-  background-image: url('http://content.indiainfoline.com/profile_picture/default_profile.png');
-  background-size: cover;
+.joinLink a {
+  text-decoration: none;
+  color: #7f919e;
+  padding: 8px 8px 8px 8px;
+  border-radius: 12px 12px 12px 12px;
 }
-
-md-card:hover {
-  	/*width: 400px;*/
-    /* Add shadows to create the "card" effect */
-    /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);*/
-/*   box-shadow: 10px 10px white;
-    transition: 0.3s;
-    background-color: #921d4c;
-    color: white;
-}*/
+.joinLink a:hover {
+  color: #1976d2;
+  background-color: #ebeef2;
+  cursor: pointer;
+}
+.followLink {
+  float: right;
+  margin-right: 20px;
+}
+.followLink a {
+  text-decoration: none;
+  color: #7f919e;
+  padding: 8px 8px 8px 8px;
+  border-radius: 12px 12px 12px 12px;
+}
+.followLink a:hover {
+  color: #1976d2;
+  background-color: #ebeef2;
+  cursor: pointer;
+}

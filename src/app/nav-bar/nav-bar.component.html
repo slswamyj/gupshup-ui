@@ -1,14 +1,26 @@
-<md-toolbar >
+<!-- <md-toolbar >
   <span>{{ brandName}}</span>
-  <button md-button [routerLink]="['/landingpage/userdashboard']">Home</button>
-  <button md-button>About</button>
+  <button md-button [routerLink]="['/landingpage/userdashboard']">Home</button> -->
   <!-- <md-input-container class="example-full-width">
     <input mdInput placeholder="Search" #username>
   </md-input-container>
   <button md-button (click)=search(username.value)>Go</button> -->
-  <button md-button [routerLink]="['/landingpage/search']">Explore</button>
+  <!-- <button md-button [routerLink]="['/landingpage/search']">Explore</button>
   <span class="example-spacer"></span>
   <menu></menu>
-</md-toolbar>
+</md-toolbar> -->
 
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">Gupshup</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a [routerLink]="['/landingpage/search']">Explore</a></li>
+      <li><a [routerLink]="['/landingpage/userdashboard']">Home</a></li>
+      
+      <li><span class="example-spacer"></span><menu class="menu"></menu></li>
+    </ul>
+  </div>
+</nav>
 
