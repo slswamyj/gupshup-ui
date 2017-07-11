@@ -36,91 +36,94 @@ export class CircleService {
     }
 
     // public selectMember(member: string) {
-    //     this.selectMemberSource.next(member);
-    // }
+        //     this.selectMemberSource.next(member);
+        // }
 
-    public getCircles(): Observable<any> {
-        console.log("update");
-        return this.http.get("assets/gupshup.json")
-        .map((res:any) => res.json());
+        public getCircles(): Observable<any> {
+            console.log("update");
+            return this.http.get("assets/gupshup.json")
+            .map((res:any) => res.json());
 
+        }
+
+        public getcircleKeywords(cname: string):Observable<any> {
+            return this.http.get("assets/gupshup.json")
+            .map((res:any) => {
+                let circles = res.json() as any[];
+                circles = circles.filter((item) => item.circleName === cname);
+
+                return circles[0].keywords;
+            });
+
+        }
+        public getcircleDescription(cname: string):Observable<any> {
+            return this.http.get("assets/gupshup.json")
+            .map((res:any) => {
+                let circles = res.json() as any[];
+                circles = circles.filter((item) => item.circleName === cname);
+
+                return circles[0].circleDescription;
+            });
+
+        }
+        public getMember(cname: string):Observable<any> {
+            return this.http.get("assets/gupshup.json")
+            .map((res:any) => {
+                let circles = res.json() as any[];
+                circles = circles.filter((item) => item.circleName === cname);
+
+                return circles[0].members;
+            });
+
+        }
+        public getUsers(): Observable<any> {
+            return this.http.get("assets/userlist.json")
+            .map((res:any) => res.json());
+        }
+
+        getMemberinbox(member:string)
+        { 
+            return Observable.of(member);
+        }
+        getCircleinbox(circle:string)
+        { 
+            return Observable.of(circle);
+        }
+        getUserName(name:string)
+        {
+            //console.log("getusername");
+            this.uname=name;
+            //console.log(this.uname);
+            return this.uname;
+        }
+        getMsg(message:string)
+        {
+
+            this.msg=message;
+            console.log("get msg in service"+this.msg);
+            //this.sendMsg();
+            return this.msg;
+
+        }
+        sendUserName()
+        {
+            console.log("nameeeee"+this.uname);
+            return this.uname;
+        }
+        sendMsg()
+        {
+            console.log("send msg in service"+this.msg);
+            return this.msg;
+        }
+
+        saveCircleIn(circle: Circle) {
+            return this.http.post('http://172.23.239.160:8080/circleservice/circle', circle).map((response) => response.json());
+        }
+        deleteCircleIn(circle:Circle){
+            return this.http.delete('http://localhost:8080/circleservice',circle).map((response) => response.json());
+        }
+
+        create(circleName: string, description: string, keywords: string[]) {
+
+        }
     }
-    
-    public getcircleKeywords(cname: string):Observable<any> {
-        return this.http.get("assets/gupshup.json")
-        .map((res:any) => {
-            let circles = res.json() as any[];
-            circles = circles.filter((item) => item.circleName === cname);
-            
-            return circles[0].keywords;
-        });
-        
-    }
-    public getcircleDescription(cname: string):Observable<any> {
-        return this.http.get("assets/gupshup.json")
-        .map((res:any) => {
-            let circles = res.json() as any[];
-            circles = circles.filter((item) => item.circleName === cname);
-            
-            return circles[0].circleDescription;
-        });
-        
-    }
-    public getMember(cname: string):Observable<any> {
-        return this.http.get("assets/gupshup.json")
-        .map((res:any) => {
-            let circles = res.json() as any[];
-            circles = circles.filter((item) => item.circleName === cname);
-           
-            return circles[0].members;
-        });
-        
-    }
-     public getUsers(): Observable<any> {
-        return this.http.get("assets/userlist.json")
-        .map((res:any) => res.json());
-    }
-    
-    getMemberinbox(member:string)
-    { 
-        return Observable.of(member);
-    }
-      getCircleinbox(circle:string)
-    { 
-        return Observable.of(circle);
-    }
-    getUserName(name:string)
-    {
-        //console.log("getusername");
-        this.uname=name;
-        //console.log(this.uname);
-         return this.uname;
-    }
-    getMsg(message:string)
-    {
-       
-        this.msg=message;
-         console.log("get msg in service"+this.msg);
-         //this.sendMsg();
-         return this.msg;
-       
-    }
-    sendUserName()
-    {
-        console.log("nameeeee"+this.uname);
-        return this.uname;
-    }
-    sendMsg()
-    {
-        console.log("send msg in service"+this.msg);
-        return this.msg;
-    }
-  
-    saveCircleIn(circle: Circle) {
-    return this.http.post('http://localhost:8080/circleservice',circle).map((response) => response.json());
-  
-    }
-    deleteCircleIn(circle:Circle){
- return this.http.delete('http://localhost:8080/circleservice',circle).map((response) => response.json());
-   }
-}

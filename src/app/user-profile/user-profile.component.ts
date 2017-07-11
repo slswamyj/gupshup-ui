@@ -18,8 +18,8 @@ export class UserProfileComponent {
 		private route: ActivatedRoute ){}
 
 	ngOnInit(): void {
-
-		this.userProfileService.getUser("randeep18")
+		let username = localStorage.getItem("username");
+		this.userProfileService.getUser(username)
 			.subscribe(
 				data => {
 					this.model = data;
