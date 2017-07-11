@@ -19,11 +19,14 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { SearchComponent } from './search/search.component';
 
+import { CanActivateViaAuthGuard } from './services/auth-guard.service';
+
 const routes : Routes = [
 	{ path:'', pathMatch:"full", redirectTo: "gupshup/home" },
 	/*{ path:'', component: UserInboxComponent },*/
-	{ path:'landingpage', component: LandingPageComponent, children: [
-		{ path:'userdashboard', component: UserDashboardComponent, children: [
+	{ path:'landingpage', component: LandingPageComponent, canActivate: [CanActivateViaAuthGuard], children: [
+		{ path:'', pathMatch:"full", redirectTo: "userdashboard"},
+			{path:'userdashboard', component: UserDashboardComponent, children: [
 			{ path:'circleinbox',component: CircleInboxComponent },
 			{ path:'circleinbox/:circle',component: CircleInboxComponent },
 			{ path:'chatbox/:name',component: ChatBoxComponent }

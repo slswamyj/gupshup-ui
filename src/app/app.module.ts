@@ -37,10 +37,9 @@ import { CircleService} from './services/circle.service';
 import { UserProfileService } from './services/user-profile.service';
 import { UpdateProfileService } from './services/update-profile.service';
 import { UserService } from './services/user.service';
-
+import { CanActivateViaAuthGuard } from './services/auth-guard.service';
 
 import { StompService } from 'ng2-stomp-service';
-
 
 @NgModule({
   declarations: [
@@ -90,8 +89,8 @@ import { StompService } from 'ng2-stomp-service';
     UserProfileService,
     UpdateProfileService,
     UserService,
-    StompService
-    
+    StompService,
+    CanActivateViaAuthGuard
   ],
   bootstrap: [ AppComponent ]
 })

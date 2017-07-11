@@ -1,11 +1,11 @@
 <div class="row" id="user_data">
   <div class="user_data_div">
     <div class="col-lg-3 user_image">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0RPebtJzQWUs1L1sP3dnYv5aSq2KTGk4lsKV7-QUdlVH2_D_W" 
+      <img src="{{model.profilePhoto}}" 
           class="profile_image">
     </div><!-- user_image column end  -->
     <div class="col-lg-8 user_name">
-      <h4>Randeep</h4>
+      <h4>{{model.firstName}} {{model.lastName}}</h4>
     </div><!-- user_image column end   -->
   </div>
 </div><!-- user data row end -->
