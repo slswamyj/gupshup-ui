@@ -1,11 +1,11 @@
 #mainDiv {
 	
 	width: 100%;
-	height: 100vh;
+	height: 450px;
 	/*position: relative;*/
 	/*height: 100%;*/
 	margin: 0px auto;
-	margin: 20px 0px 0px 0px;
+	margin: 20px 0px 0px 0px
 }
 #mainRowDiv {
 
@@ -19,61 +19,18 @@
 /*	margin-left: 15px;
 	margin-right: 15px;*/
 }
-/*#circlelistRow {
-	padding-left: 0px;
-	padding-right: 0px;
-	margin: 0px auto;
-}
-#userlistRow {
-	padding-left: 0px;
-	padding-right: 0px;
-	margin: 0px auto;
-}
-#circlelistDiv {
-	width: 100%;
-	height: 370px;
-	padding-left: 0px;
-	padding-right: 0px;
-}
-#userlistDiv {
-	width: 100%;
-	height: 240px;
-	padding-left: 0px;
-	padding-right: 0px;
-}*/
 
 #inboxpanel {
 	padding-left: 0px;
 	padding-right: 0px;
 	margin: 0px auto;
-	height: 100vh;
+	/*box-shadow: 0 0 10px rgba(0, 0, 0, .5);*/
+	/*height: 100vh;*/
 }
-/*#inboxRow {
-	padding-left: 0px;
-	padding-right: 0px;
-	margin: 0px auto;
-}
-#inboxDiv {
-	width: 100%;
-	height: 610px;
-	padding-left: 0px;
-	padding-right: 0px;
-}*/
 #rightpanel {
 	padding-left: 0px;
 	padding-right: 0px;
 	margin: 0px auto;
 	/*height: 100vh;*/
 }
-/*#recommendationRow {
-	padding-left: 0px;
-	padding-right: 0px;
-	margin: 0px auto;
-}
-#recommendationDiv {
-	width: 100%;
-	height: 610px;
-	padding-left: 0px;
-	padding-right: 0px;
 
-}*/

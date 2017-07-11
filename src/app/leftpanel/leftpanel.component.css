@@ -62,40 +62,18 @@
 	font-size: 25px;
 }
 
+.showMoreLink {
+  font-style: italic;
+  padding-left: 30px;
+  padding-top: 30px;
+}
+.showMoreLink a {
+  text-decoration: none;
+  color: #7f919e;
+}
+.showMoreLink a:hover {
+  color: #1976d2;
+  cursor: pointer;
+}
 
-
-/*#side_nav {
-	display: flex;
-	z-index: 1;
-	width: 100%;
-}
-#side_nav_contents {
-	width: 100%;
-}*/
-/*#user_menu_contents {
-	padding-top: 10px;
-	padding-left: 10px;
-}*/
-/*#newCircleDiv {
-	float: left;
-}*/
-/*#newCircleDiv a {
-	text-decoration: none;
-	color: white;
-	padding: 10px 0px 10px 40px;
-	display: block;
-	background-color: black;
-}
-#newCircleDiv a:hover {
-	background-color: white;
-	color: black;
-	cursor: pointer;
-}
-/*.material-icons {
-	font-size: 20px;
-}*/
-/*#side_nav h3{
-	font-size: 15px;
-	text-transform: uppercase;
-	display: block;
-}*/
+	

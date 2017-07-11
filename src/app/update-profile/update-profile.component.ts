@@ -49,12 +49,13 @@ export class UpdateProfileComponent implements OnInit{
     
 
   createForm() {
-  	this.updateForm = this.formBuilder.group({
+    console.log(this.user);
+  	this.updateForm = this.formBuilder.group ({
       profilePhoto : [this.user.profilePhoto],
       userName : [this.user.userName],
   		firstName : [this.user.firstName, Validators.required],
   		lastName : [this.user.lastName, Validators.required],
-  		dob : [this.user.dob],
+  		dob : [this.user.dob, Validators.required],
   		emailId : [this.user.emailId, [Validators.required, Validators.email] ],
   		contactNo : [this.user.contactNo, Validators.required]
   		
@@ -80,8 +81,9 @@ export class UpdateProfileComponent implements OnInit{
       this.updatedUser.profilePhoto = this.imageUrl;
     }
     console.log(this.user.password);
-    console.log(this.updatedUser);
     console.log(this.updatedUser.profilePhoto);
+    console.log(this.updatedUser);
+
     this.updateProfileService.updateUserProfile(this.updatedUser)
     .subscribe((msg : string) => this.message = msg);
       //errorMsg => this.errorMessage = errorMsg);
@@ -110,6 +112,7 @@ export class UpdateProfileComponent implements OnInit{
   formErrors = {
     'firstName': '',
     'lastName': '',
+    'dob': '',
     'emailId': '',
     'contactNo': ''
   };
@@ -120,6 +123,9 @@ export class UpdateProfileComponent implements OnInit{
     },
     'lastName': {
       'required': 'Last Name is required.'
+    },
+    'dob': {
+      'required': 'Date of birth is required.'
     },
     'emailId': {
       'required': 'Email Id is required.',

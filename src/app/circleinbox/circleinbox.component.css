@@ -1,27 +1,3 @@
-/*h2 {
-	text-transform: uppercase;
-}
-button {
-	display: inline;
-	margin-left: 30px;
-	padding-left: 10px;
-	font-size:15px;
-	margin-bottom: 20px;
-	border-radius: 12px;
-}
-#circleroot {
-	/*background-color: #e5fffb;*/
-/*}
-#mail {*/
-	/*background-color: green;*/
-/*}
-#post {
-	background-color: red;
-}
-p {
-	background-color: orange;
-}*/
-
 .container {
 	width: 100%;
 }
@@ -56,6 +32,29 @@ section {
 	height: 450px;
 	overflow-y: scroll;
 }
+/* Let's get this party started */
+#inboxMessageDiv::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+/* Track */
+#inboxMessageDiv::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+#inboxMessageDiv::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgb(248,248,248); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+#inboxMessageDiv::-webkit-scrollbar-thumb:window-inactive {
+	background: rgb(248,248,248); 
+}
+
 .inboxHeadingDiv {
 	padding-left: 50px;
 }

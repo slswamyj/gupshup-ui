@@ -1,8 +1,26 @@
 h2 {
-	text-align: center;
+    padding-top: 9px;
+    padding-left: 20px;
+    border-right-width: 10px;
+    padding-right: 30px;
+}
+.page-header {
+    text-align: left;
+    margin-top: 0px;	
 }
 #mainDiv {
 	padding-left: 50px;
+}
+.editProfileHolder {
+	background-color: white;
+	margin-bottom: 40px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+#editProfileRow {
+	padding: 0px 50px 30px 100px;
+}
+.control-label {
+	color: #1976d2;
 }
 /*.alert {
 	color: red;
@@ -10,10 +28,6 @@ h2 {
 .profilePhoto {
 	width: 200px;
 	height: 200px;
-}
-.page-header {
-	text-align: left;
-	margin-top: 50px;
 }
 .uploadPhotoDiv {
 	margin-top: 20px;
