@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, routing, appRoutingProviders } from './app-routing.module';
 import { HttpModule } from '@angular/http';
@@ -90,6 +91,7 @@ import { StompService } from 'ng2-stomp-service';
     UpdateProfileService,
     UserService,
     StompService
+    
   ],
   bootstrap: [ AppComponent ]
 })

@@ -5,7 +5,8 @@ import { User } from '../model/User';
 
 @Injectable()
 export class UserService {
-	constructor(private http: Http){}
+	constructor(private http: Http
+				 ){}
 
 	create(user: User) {
 		return this.http.post('http://172.23.239.160:8080/userservice/user', user)
@@ -23,10 +24,6 @@ export class UserService {
     	headers.append('Authorization', 'Basic ' + basicHeader);
     	let options = new RequestOptions({headers: headers});
 		
-		// let body = new URLSearchParams();
-		// body.set("grant_type", "password");
-		// body.set("username", username);	
-		// body.set("password", password);
 		let body = "username="+username+"&password="+encodeURIComponent(password)+"&grant_type=password&"+
 		"client_secret=stackroute&client_id=gupshup";
 
