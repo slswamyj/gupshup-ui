@@ -28,21 +28,21 @@ const routes : Routes = [
 	{ path:'landingpage', component: LandingPageComponent, canActivate: [CanActivateViaAuthGuard], children: [
 		{ path:'', pathMatch:"full", redirectTo: "userdashboard"},
 			{path:'userdashboard', component: UserDashboardComponent, children: [
-			{ path:'circleinbox',component: CircleInboxComponent },
-			{ path:'circleinbox/:circle',component: CircleInboxComponent },
-			{ path:'chatbox/:name',component: ChatBoxComponent }
-		]},
+				{ path:'circleinbox',component: CircleInboxComponent },
+				{ path:'circleinbox/:circle',component: CircleInboxComponent },
+				{ path:'chatbox/:name',component: ChatBoxComponent }
+			]},
 		{ path:'userprofile',component: UserProfileComponent },
  		{ path:'userprofile/:username', component: UserProfileComponent },
  		{ path:'updateprofile', component: UpdateProfileComponent },
  		{ path:'search', component: SearchComponent }
 	]},
 
-	{ path:'gupshup', component: NavBarHomeComponent },
+	{ path:'gupshup', component: NavBarHomeComponent, children: [
 	/*{ path: 'gupshup', component: HomePageComponent, children: [
-		{ path: 'home', component: HomeContentComponent },
+		{ path: 'home', component: HomeContentComponent },*/
 		{ path: 'register', component: RegisterComponent }
-	] },*/
+	] },
 		
 	{ path:'circlememberinbox/:member',component: ChatBoxComponent },
  	{ path:'createcircle',component: CreateCircle}
