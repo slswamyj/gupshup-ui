@@ -17,6 +17,8 @@ export class CircleService {
     private uname : string;
     private msg : string;
     private message: string;
+    private saveCircleUrl = "http://172.23.239.176:8080/circleservice/circle";
+    private getCirlclesUrl = "http://172.23.239.176:8080/circleservice/circle/";
     
     constructor(private http: Http) {
 
@@ -41,7 +43,7 @@ export class CircleService {
 
         public getCircles(): Observable<any> {
             console.log("update");
-            return this.http.get("assets/gupshup.json")
+            return this.http.get(this.getCirlclesUrl+localStorage.getItem("username")+"/circles")
             .map((res:any) => res.json());
 
         }
@@ -66,13 +68,12 @@ export class CircleService {
             });
 
         }
-        public getMember(cname: string):Observable<any> {
-            return this.http.get("assets/gupshup.json")
+        public getMember(circleId: string):Observable<any> {
+            return this.http.get(this.getCirlclesUrl+circleId+"/members")
             .map((res:any) => {
-                let circles = res.json() as any[];
-                circles = circles.filter((item) => item.circleName === cname);
-
-                return circles[0].members;
+                let members = res.json() as any[];
+                console.log(Observable.of(members));
+                return members;
             });
 
         }
@@ -87,7 +88,8 @@ export class CircleService {
         }
         getCircleinbox(circle:string)
         { 
-            return Observable.of(circle);
+            console.log(circle+"here");
+            return this.http.get(this.getCirlclesUrl+circle+"/mailbox?userName="+localStorage.getItem("username")+"&page=0").map(res => res.json());
         }
         getUserName(name:string)
         {
@@ -117,7 +119,7 @@ export class CircleService {
         }
 
         saveCircleIn(circle: Circle) {
-            return this.http.post('http://172.23.239.160:8080/circleservice/circle', circle).map((response) => response.json());
+            return this.http.post(this.saveCircleUrl, circle).map((response) => response.json());
         }
         deleteCircleIn(circle:Circle){
             return this.http.delete('http://localhost:8080/circleservice',circle).map((response) => response.json());

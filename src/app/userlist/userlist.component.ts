@@ -13,6 +13,7 @@ export class UserListComponent implements OnInit{
   members:string[];
   member:string[];
   selectedOption: string;
+  
 
   constructor(
     private router : Router,

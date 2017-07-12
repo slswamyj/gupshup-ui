@@ -14,7 +14,7 @@ export class UpdateProfileService {
 		
 		console.log("***");
 		console.log(user);
-		let url = 'http://172.23.239.160:8080/userservice/user/';		
+		let url = 'http://172.23.239.176:8080/userservice/user/';		
 		return this.http.put(url+user.userName, user)
 			.map((response : Response) => response.json());
 		//.catch(this.errorHandler);

@@ -12,7 +12,7 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 
 export class CircleListComponent {
   title="Gupshup";
-  circle:string[];
+  circle:any[];
   /*result: any;
   selectedOption: string;
 */
@@ -20,13 +20,13 @@ export class CircleListComponent {
     private router: Router,
     private circleservice: CircleService,
     public dialog: MdDialog) {
-    this.circleservice.getCircles().subscribe((circles:string[]) => {
+    this.circleservice.getCircles().subscribe((circles:any[]) => {
       this.circle = circles; 
     })}
 
     selectCircle(circle){
       this.circleservice.selectCircle(circle);
-      this.router.navigate(['userdashboard/circleinbox',circle]);
+      this.router.navigate(['/landingpage/userdashboard/circleinbox',circle]);
     }
 
 /*    openDialog() {
