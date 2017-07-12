@@ -38,11 +38,11 @@ const routes : Routes = [
  		{ path:'search', component: SearchComponent }
 	]},
 
-	{ path:'gupshup', component: NavBarHomeComponent, children: [
+	{ path:'gupshup', component: NavBarHomeComponent }, /*children: [*/
 	/*{ path: 'gupshup', component: HomePageComponent, children: [
 		{ path: 'home', component: HomeContentComponent },*/
-		{ path: 'register', component: RegisterComponent }
-	] },
+		{ path: 'register', component: RegisterComponent },
+	/*] },*/
 		
 	{ path:'circlememberinbox/:member',component: ChatBoxComponent },
  	{ path:'createcircle',component: CreateCircle}
