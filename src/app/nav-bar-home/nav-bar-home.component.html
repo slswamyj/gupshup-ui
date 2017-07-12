@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<!-- <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <a href="#" class="navbar-brand">Gupshup</a>
@@ -9,15 +9,20 @@
       <li><button class="btn btn-primary btn-login" data-toggle="modal" data-target="#loginModal">Login</button></li>
     </ul>
   </div>
-</nav>
+</nav> -->
+<div id="cloud-scroll"></div> 
+<button id="openModal" #openModal [hidden]="true" 
+ data-toggle="modal" data-target="#loginModal"></button>
 
 <!-- Modal -->
-<div id="loginModal" class="modal fade" role="dialog">
+<div id="loginModal" data-backdrop="static" data-keyboard="false" class="modal fade" role="dialog">
+  <button type="button" class="btn btn-default" id="signupbtn" 
+    [routerLink]="['/register']">Sign up</button>
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
         <div class="login-title">Login</div>
       </div>
       <div class="modal-body">

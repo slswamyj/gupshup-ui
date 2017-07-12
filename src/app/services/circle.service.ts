@@ -109,7 +109,7 @@ export class CircleService {
         }
         sendUserName()
         {
-            console.log("nameeeee"+this.uname);
+            console.log("nameeeee"+this.uname);    
             return this.uname;
         }
         sendMsg()

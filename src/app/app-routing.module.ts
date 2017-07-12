@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HomeContentComponent } from './home-content/home-content.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { NavBarHomeComponent } from './nav-bar-home/nav-bar-home.component';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
@@ -21,7 +22,7 @@ import { SearchComponent } from './search/search.component';
 import { CanActivateViaAuthGuard } from './services/auth-guard.service';
 
 const routes : Routes = [
-	{ path:'', pathMatch:"full", redirectTo: "gupshup/home" },
+	{ path:'', pathMatch:"full", redirectTo: 'gupshup' },
 	/*{ path:'', component: UserInboxComponent },*/
 	{ path:'landingpage', component: LandingPageComponent, canActivate: [CanActivateViaAuthGuard], children: [
 		{ path:'', pathMatch:"full", redirectTo: "userdashboard"},
@@ -36,10 +37,11 @@ const routes : Routes = [
  		{ path:'search', component: SearchComponent }
 	]},
 
-	{ path: 'gupshup', component: HomePageComponent, children: [
-		{ path: 'home', component: HomeContentComponent },
-		{ path: 'register', component: RegisterComponent }
-	] },
+	{ path:'gupshup', component: NavBarHomeComponent }, /*children: [*/
+	/*{ path: 'gupshup', component: HomePageComponent, children: [
+		{ path: 'home', component: HomeContentComponent },*/
+		{ path: 'register', component: RegisterComponent },
+	/*] },*/
 		
 	{ path:'circlememberinbox/:member',component: ChatBoxComponent },
  	{ path:'createcircle',component: CreateCircle}

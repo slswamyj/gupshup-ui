@@ -38,9 +38,8 @@ export class CircleInboxComponent {
         this.myinbox = Circleinbox;
         console.log(this.myinbox)
       });
-      
-      //this.circleservice.getcircleKeywords(this.myinbox).subscribe((keywords)=>this.keywords=keywords);
-      //this.circleservice.getcircleDescription(this.myinbox).subscribe((description)=>this.description=description);
+
+      this.circleservice.
     }
 
     
