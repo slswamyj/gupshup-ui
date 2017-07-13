@@ -13,68 +13,66 @@ import {DeleteCircleComponent} from '../deletecircle/deletecircle.component';
   styleUrls: ['./circleinbox.component.css']
 })
 export class CircleInboxComponent {
-myinbox:string;
-members:Circle;
-circle:Circle;
-memberName:any;
-circleName: string;
-circleDescription: string;
-selectedOption: string;
-result: any;
-keywords:string;
-description:string;
+  myinbox:string;
+  members:Circle;
+  circle:Circle;
+  memberName:any;
+  circleName: string;
+  circleDescription: string;
+  selectedOption: string;
+  result: any;
+  keywords:string;
+  description:string;
 
-constructor(
-  private circleservice : CircleService,
-  private router:Router,
-  private route:ActivatedRoute,
-  private dialog: MdDialog){
-
- 
+  constructor(
+    private circleservice : CircleService,
+    private router:Router,
+    private route:ActivatedRoute,
+    private dialog: MdDialog){
   } 
 
- ngOnInit() {	
- 	this.route.params.switchMap((param:Params) => 
-    		 this.circleservice.getCircleinbox(param['circle'])
-    	).subscribe((Circleinbox) => {
-    			this.myinbox = Circleinbox;
-    		 
-    	});
-      this.circleservice.getcircleKeywords(this.myinbox).subscribe((keywords)=>this.keywords=keywords);
-         this.circleservice.getcircleDescription(this.myinbox).subscribe((description)=>this.description=description);
-}
+  ngOnInit() {	
+    this.route.params.switchMap((param:Params) => 
+      this.circleservice.getCircleinbox(param['circle'])
+      ).subscribe((Circleinbox) => {
+        this.myinbox = Circleinbox;
+        console.log(this.myinbox)
+      });
 
-  
- Members() {
-    
-    this.circleservice.getMember(this.myinbox).subscribe((mem) => {
-      this.members = mem;
-     });
-    
-   	}
+      this.circleservice.
+    }
 
-  openDialog() {
-    this.dialog.open(EditCircleComponent, {
-         data: {
-               Keywords: this.keywords,
-               Description:this.description,
-               Circle:this.myinbox
-               }
-             });
+    
+    Members() {
+      
+      this.circleservice.getMember(this.myinbox).subscribe((mem) => {
+        this.members = mem;
+      });
+      
+    }
+
+    openDialog() {
+      this.dialog.open(EditCircleComponent, {
+        data: {
+          Keywords: this.keywords,
+          Description:this.description,
+          Circle:this.myinbox
+        }
+      });
     }
     deleteCircle() {
 
       this.dialog.open(DeleteCircleComponent, {
-         data: {
-               Keywords: this.keywords,
-               Description:this.description,
-               Circle:this.myinbox
-               }
-             });
-    
+        data: {
+          Keywords: this.keywords,
+          Description:this.description,
+          Circle:this.myinbox
+        }
+      });
+      
       
     }
-}
+  }
 
 
 

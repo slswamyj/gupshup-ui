@@ -9,7 +9,6 @@ import { CreateCircle } from './createcircle/createcircle.component';
 
 import { PostComponent} from './post/post.component';
 import { ChatBoxComponent } from './chatbox/chatbox.component';
-import { MailboxComponent} from './mailbox/mailbox.component';
 import { RegisterComponent } from './register/register.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HomeContentComponent } from './home-content/home-content.component';
@@ -28,10 +27,10 @@ const routes : Routes = [
 	{ path:'landingpage', component: LandingPageComponent, canActivate: [CanActivateViaAuthGuard], children: [
 		{ path:'', pathMatch:"full", redirectTo: "userdashboard"},
 			{path:'userdashboard', component: UserDashboardComponent, children: [
-				{ path:'circleinbox',component: CircleInboxComponent },
-				{ path:'circleinbox/:circle',component: CircleInboxComponent },
-				{ path:'chatbox/:name',component: ChatBoxComponent }
-			]},
+			{ path:'circleinbox/:circle',component: CircleInboxComponent },
+			{ path:'circleinbox',component: CircleInboxComponent },
+			{ path:'chatbox/:name',component: ChatBoxComponent }
+		]},
 		{ path:'userprofile',component: UserProfileComponent },
  		{ path:'userprofile/:username', component: UserProfileComponent },
  		{ path:'updateprofile', component: UpdateProfileComponent },

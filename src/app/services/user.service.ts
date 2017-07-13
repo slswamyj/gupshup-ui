@@ -21,7 +21,7 @@ export class UserService {
 	}
 
 	create(user: User) {
-		return this.http.post('http://172.23.239.160:8080/userservice/user', user)
+		return this.http.post('http://172.23.239.176:8080/userservice/user', user)
 		.map((response: Response) => {
 			console.log(response.json());
 			return response.json();
