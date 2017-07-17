@@ -44,7 +44,7 @@ export class EditCircleComponent {
   }
   editCircle(){
     this.circle = this.SaveCircle();
-    this.circleService.saveCircleIn(this.circle).subscribe();
+    this.circleService.saveCircle(this.circle).subscribe();
 
   }
 

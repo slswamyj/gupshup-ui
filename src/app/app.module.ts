@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule, routing, appRoutingProviders } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GupshupAppMaterialModule } from './gupshup-app-material.module';
@@ -20,12 +20,10 @@ import { DeleteCircleComponent } from './deletecircle/deletecircle.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { CircleInboxComponent } from './circleinbox/circleinbox.component';
-import { UserInboxComponent } from './userinbox/userinbox.component';
 import { CreateCircle } from './createcircle/createcircle.component';
 import { SearchComponent } from './search/search.component';
 import { PostComponent} from './post/post.component';
 import { ChatBoxComponent } from './chatbox/chatbox.component';
-import { MailboxComponent} from './mailbox/mailbox.component';
 import { InboxPanelComponent } from './inbox-panel/inbox-panel.component';
 import { HomeContentComponent } from './home-content/home-content.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -37,6 +35,7 @@ import { CircleService} from './services/circle.service';
 import { UserProfileService } from './services/user-profile.service';
 import { UpdateProfileService } from './services/update-profile.service';
 import { UserService } from './services/user.service';
+import { SocketService } from './services/socket.service';
 import { CanActivateViaAuthGuard } from './services/auth-guard.service';
 
 import { StompService } from 'ng2-stomp-service';
@@ -56,12 +55,10 @@ import { StompService } from 'ng2-stomp-service';
     UserProfileComponent,
     UpdateProfileComponent,
     CircleInboxComponent,
-    UserInboxComponent,
     CreateCircle,
     PostComponent,
     SearchComponent,
     ChatBoxComponent,
-    MailboxComponent,
     InboxPanelComponent,
     HomeContentComponent,
     HomePageComponent,
@@ -72,7 +69,6 @@ import { StompService } from 'ng2-stomp-service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    routing,
     ReactiveFormsModule,
     FormsModule,
   	HttpModule,
@@ -84,12 +80,12 @@ import { StompService } from 'ng2-stomp-service';
     DeleteCircleComponent
   ],
   providers: [ 
-    appRoutingProviders,
     CircleService,
     UserProfileService,
     UpdateProfileService,
     UserService,
     StompService,
+    SocketService,
     CanActivateViaAuthGuard
   ],
   bootstrap: [ AppComponent ]

@@ -1,8 +1,7 @@
-.container {
-	width: 100%;
-}
+
 #mainInboxConatiner {
 	background-color: white;
+	height: 800px;
 }
 #navbar_row {
 	margin: 0 auto;
@@ -29,7 +28,7 @@ section {
 #inboxMessageDiv {
 	padding-top: 30px;
 	padding-left: 50px;
-	height: 450px;
+	height: 750px;
 	overflow-y: scroll;
 }
 /* Let's get this party started */
@@ -90,6 +89,9 @@ section {
 	margin-top: 0px;
 }
 
+#msgcard{
+	height: auto;
+}
 
 .meassage {
 	width: 50%;

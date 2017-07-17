@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 	<div class="row">
         <div class="col-md-12">
     		<div id="search-input">
@@ -15,4 +15,14 @@
             
         </div>
 	</div>
-</div>
+</div> -->
+
+<md-input-container>
+  <input mdInput placeholder="State" [mdAutocomplete]="auto" [formControl]="stateCtrl">
+</md-input-container>
+
+<md-autocomplete #auto="mdAutocomplete">
+  <md-option *ngFor="let state of filteredStates | async" [value]="state">
+    {{ state }}
+  </md-option>
+</md-autocomplete>

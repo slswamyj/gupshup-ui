@@ -3,6 +3,7 @@ import { CircleService } from '../services/circle.service';
 import { CreateCircle } from '../createcircle/createcircle.component';
 import { Router } from '@angular/router';
 import { MdDialog, MdDialogRef } from '@angular/material';
+import { SocketService } from '../services/socket.service';
 
 @Component({
   selector: 'circlelist',
@@ -13,18 +14,17 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 export class CircleListComponent {
   title="Gupshup";
   circle:any[];
-  /*result: any;
-  selectedOption: string;
-*/
   constructor(
     private router: Router,
     private circleservice: CircleService,
+    private socketService: SocketService,
     public dialog: MdDialog) {
     this.circleservice.getCircles().subscribe((circles:any[]) => {
       this.circle = circles; 
     })}
 
     selectCircle(circle){
+      this.socketService.subscribeCircle(circle);
       this.circleservice.selectCircle(circle);
       this.router.navigate(['/landingpage/userdashboard/circleinbox',circle]);
     }

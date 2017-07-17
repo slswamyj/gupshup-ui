@@ -4,7 +4,6 @@ import { ModuleWithProviders } from '@angular/core';
 
 import { CircleInboxComponent } from './circleinbox/circleinbox.component';
 import { UserDashboardComponent } from './userdashboard/userdashboard.component';
-import { UserInboxComponent } from './userinbox/userinbox.component';
 import { CreateCircle } from './createcircle/createcircle.component';
 
 import { PostComponent} from './post/post.component';
@@ -22,38 +21,29 @@ import { SearchComponent } from './search/search.component';
 import { CanActivateViaAuthGuard } from './services/auth-guard.service';
 
 const routes : Routes = [
-	{ path:'', pathMatch:"full", redirectTo: 'gupshup' },
-	/*{ path:'', component: UserInboxComponent },*/
-	{ path:'landingpage', component: LandingPageComponent, canActivate: [CanActivateViaAuthGuard], children: [
-		{ path:'', pathMatch:"full", redirectTo: "userdashboard"},
-			{path:'userdashboard', component: UserDashboardComponent, children: [
-			{ path:'circleinbox/:circle',component: CircleInboxComponent },
-			{ path:'circleinbox',component: CircleInboxComponent },
-			{ path:'chatbox/:name',component: ChatBoxComponent }
-		]},
-		{ path:'userprofile',component: UserProfileComponent },
- 		{ path:'userprofile/:username', component: UserProfileComponent },
- 		{ path:'updateprofile', component: UpdateProfileComponent },
- 		{ path:'search', component: SearchComponent }
-	]},
+{ path:'', pathMatch:"full", redirectTo: 'gupshup' },
+{ path:'landingpage', component: LandingPageComponent, canActivate: [CanActivateViaAuthGuard], children: [
+{ path:'', pathMatch:"full", redirectTo: "userdashboard"},
+{ path:'userdashboard', component: UserDashboardComponent, children: [
+{ path:'circleinbox/:circle',component: CircleInboxComponent },
+{ path:'search', component: SearchComponent }
+]},
+{ path:'userprofile',component: UserProfileComponent },
+{ path:'userprofile/:username', component: UserProfileComponent },
+{ path:'updateprofile', component: UpdateProfileComponent }
+]},
 
-	{ path:'gupshup', component: NavBarHomeComponent }, /*children: [*/
-	/*{ path: 'gupshup', component: HomePageComponent, children: [
-		{ path: 'home', component: HomeContentComponent },*/
-		{ path: 'register', component: RegisterComponent },
-	/*] },*/
-		
-	{ path:'circlememberinbox/:member',component: ChatBoxComponent },
- 	{ path:'createcircle',component: CreateCircle}
+{ path:'gupshup', component: NavBarHomeComponent }, 
+{ path: 'home', component: HomeContentComponent },
+{ path: 'register', component: RegisterComponent },
+
+{ path:'circlememberinbox/:member',component: ChatBoxComponent },
+{ path:'createcircle',component: CreateCircle}
 ];
 
 @NgModule({
 	imports: [ RouterModule.forRoot(routes)],
 	exports: [ RouterModule ]
 })
-
 export class AppRoutingModule{}
 
-export const appRoutingProviders: any[] = [];
-
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

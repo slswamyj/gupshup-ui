@@ -1,13 +1,8 @@
-.material-icons {
+#post {
+	position: absolute;
+	bottom: 0px;
 
 }
-.btn {
-	padding: 0px;
-}
-.input-group-addon {
-
-}
-
 
 /*textarea
 {

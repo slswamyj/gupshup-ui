@@ -15,23 +15,24 @@ export class CreateCircle
 
   circleform:FormGroup;
 
-  constructor(public dialogRef: MdDialogRef<CreateCircle>,
-    private circleService: CircleService,private fb:FormBuilder) {
+  constructor(
+    public dialogRef: MdDialogRef<CreateCircle>,
+    private circleService: CircleService,
+    private fb:FormBuilder) {
     this.createForm();
   }
   
-  createForm()
-  {
+  createForm() {
     this.circleform=this.fb.group({
       circleName:"",
       circleDescription:"",
       keywords: this.fb.array([])
-      
-     })
+     });
   }
+
   createCircle(){
     this.circle = this.SaveCircle();
-    this.circleService.saveCircleIn(this.circle)
+    this.circleService.saveCircle(this.circle)
         .subscribe(data => {
             console.log(data.json());
          },
@@ -46,14 +47,12 @@ export class CreateCircle
     let username = localStorage.getItem("username");
     const formModel = this.circleform.value;
     const saveCircle: Circle = {
-
       circleName: formModel.circleName as string,
       circleDescription:formModel.circleDescription as string,
       keywords: formModel.keywords as string[],
       circleCreatedBy: username,
       circleCreatedDate: null,
       circleMembers: []
-
     };
     console.log(formModel.keywords);
     return saveCircle;

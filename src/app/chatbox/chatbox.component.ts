@@ -3,6 +3,7 @@ import { CircleService } from '../services/circle.service';
 import { Router} from '@angular/router';
 import { ActivatedRoute,Params} from '@angular/router';
 import { StompService } from 'ng2-stomp-service';
+
 import { MdDialogRef, MdDialog,MdDialogConfig,MD_DIALOG_DATA } from '@angular/material';
 import 'rxjs/add/operator/switchMap';
 
@@ -42,9 +43,9 @@ export class ChatBoxComponent implements OnInit {
     this.from = localStorage.getItem("username");
     console.log(this.from);
     this.connect();
-    this.circleservice.chatMessages$.subscribe((message: any) => {
-      this.messages.push(message.name);
-    });
+    // this.circleservice.chatMessages$.subscribe((message: any) => {
+      // this.messages.push(message.name);
+    // });
   }
   
   send(message) {

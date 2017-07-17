@@ -14,55 +14,42 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 export class DeleteCircleComponent {
-
-
- 
   editcircleform:FormGroup;
-cirName:string;
-key:string[];
-obj:Circle;
-circle:Circle;
+  cirName:string;
+  key:string[];
+  obj:Circle;
+  circle:any;
 
   constructor(public dialogRef: MdDialogRef<DeleteCircleComponent>,
     private circleService:CircleService,
     private fb:FormBuilder,
-   
-   @Inject(MD_DIALOG_DATA) public data: any) {
-
+    @Inject(MD_DIALOG_DATA) public data: any) {
     console.log('data', this.data.Circle);
     this.editForm();
   }     
 
- 
-  
- 
-
-editForm()
-{ 
-  this.editcircleform=this.fb.group({
-   keywords:this.data.Keywords,
-   description:this.data.Description,
-   Circle:this.data.Circle
-   
- })
-
-}
-  delCircle(){
-    this.circle = this.deleteCircle();
-    this.circleService.deleteCircleIn(this.circle).subscribe();
-  
+  editForm()  { 
+    this.editcircleform=this.fb.group({
+      keywords:this.data.Keywords,
+      description:this.data.Description,
+      Circle:this.data.Circle
+    })
   }
 
-  deleteCircle(): Circle {
+  delCircle(){
+    this.circle = this.deleteCircle();
+    this.circleService.deleteCircle(this.circle.circleId).subscribe();
+  }
+
+  deleteCircle() {
     const formModel = this.editcircleform.value;
 
-     const saveCircle: Circle = {
-      
+    const saveCircle= {
       circleName: formModel.Circle as string,
       circleDescription:formModel.description as string,
       keywords: formModel.keywords as string[]
     };
-    
+
     console.log("circle details :"+saveCircle.keywords+"cname :"+saveCircle.circleName+" des: "+saveCircle.circleDescription);
     return saveCircle;
   }

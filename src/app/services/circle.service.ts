@@ -1,131 +1,155 @@
-import { Observable } from 'rxjs/Rx';
-import { CreateCircle } from '../createcircle/createcircle.component';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Subject }    from 'rxjs/Subject';
+
+import { CreateCircle } from '../createcircle/createcircle.component';
 import { Circle } from '../model/Circle';
+import { User } from '../model/User';
+import { Member } from '../model/Member';
+
+import { Observable, BehaviorSubject } from 'rxjs/Rx';
+import { Subject }    from 'rxjs/Subject';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class CircleService {
 
-    private selectCircleSource = new Subject<string>();
-    private selectMemberSource = new Subject<string>();
-    private chatMessageSource = new Subject<string>();
+    private username: string;
+    private selectCircleSource = new BehaviorSubject<string>(undefined);
+    private selectMemberSource = new BehaviorSubject<string>(undefined);
+    private circleMessageSource = new Subject<string>();
 
-    private uname : string;
-    private msg : string;
-    private message: string;
-    private saveCircleUrl = "http://172.23.239.176:8080/circleservice/circle";
-    private getCirlclesUrl = "http://172.23.239.176:8080/circleservice/circle/";
+    private circleServiceUrl = 'http://172.23.239.176:8080/circleservice/circle/';
+    private mailboxServiceUrl = 'http://172.23.239.176:8080/mailboxservice/mailbox/';
+    private activityProducerUrl = 'http://172.23.239.176:8080/activityproducer/activity';
     
     constructor(private http: Http) {
-
+        this.username = localStorage.getItem('username');
     }
 
     // Observable string streams
     circleSelected$ = this.selectCircleSource.asObservable();
     memberSelected$ = this.selectMemberSource.asObservable();
-    chatMessages$ = this.chatMessageSource.asObservable();
+    circleMessages$ = this.circleMessageSource.asObservable();
 
     public setMessage(message: string) {
-        this.chatMessageSource.next(message);
+        this.circleMessageSource.next(message);
     }
 
-    public selectCircle(circle: string) {
-        this.selectCircleSource.next(circle);
+    public selectCircle(circleName: string) {
+        this.selectCircleSource.next(circleName);
     }
 
-    // public selectMember(member: string) {
-        //     this.selectMemberSource.next(member);
-        // }
-
-        public getCircles(): Observable<any> {
-            console.log("update");
-            return this.http.get(this.getCirlclesUrl+localStorage.getItem("username")+"/circles")
-            .map((res:any) => res.json());
-
-        }
-
-        public getcircleKeywords(cname: string):Observable<any> {
-            return this.http.get("assets/gupshup.json")
-            .map((res:any) => {
-                let circles = res.json() as any[];
-                circles = circles.filter((item) => item.circleName === cname);
-
-                return circles[0].keywords;
-            });
-
-        }
-        public getcircleDescription(cname: string):Observable<any> {
-            return this.http.get("assets/gupshup.json")
-            .map((res:any) => {
-                let circles = res.json() as any[];
-                circles = circles.filter((item) => item.circleName === cname);
-
-                return circles[0].circleDescription;
-            });
-
-        }
-        public getMember(circleId: string):Observable<any> {
-            return this.http.get(this.getCirlclesUrl+circleId+"/members")
-            .map((res:any) => {
-                let members = res.json() as any[];
-                console.log(Observable.of(members));
-                return members;
-            });
-
-        }
-        public getUsers(): Observable<any> {
-            return this.http.get("assets/userlist.json")
-            .map((res:any) => res.json());
-        }
-
-        getMemberinbox(member:string)
-        { 
-            return Observable.of(member);
-        }
-        getCircleinbox(circle:string)
-        { 
-            console.log(circle+"here");
-            return this.http.get(this.getCirlclesUrl+circle+"/mailbox?userName="+localStorage.getItem("username")+"&page=0").map(res => res.json());
-        }
-        getUserName(name:string)
-        {
-            //console.log("getusername");
-            this.uname=name;
-            //console.log(this.uname);
-            return this.uname;
-        }
-        getMsg(message:string)
-        {
-
-            this.msg=message;
-            console.log("get msg in service"+this.msg);
-            //this.sendMsg();
-            return this.msg;
-
-        }
-        sendUserName()
-        {
-            console.log("nameeeee"+this.uname);    
-            return this.uname;
-        }
-        sendMsg()
-        {
-            console.log("send msg in service"+this.msg);
-            return this.msg;
-        }
-
-        saveCircleIn(circle: Circle) {
-            return this.http.post(this.saveCircleUrl, circle).map((response) => response.json());
-        }
-        deleteCircleIn(circle:Circle){
-            return this.http.delete('http://localhost:8080/circleservice',circle).map((response) => response.json());
-        }
-
-        create(circleName: string, description: string, keywords: string[]) {
-
-        }
+    public selectMember(userName: string) {
+        this.selectMemberSource.next(userName);
     }
+
+    getCircle(circleId: string) {
+        return this.http.get(this.circleServiceUrl + circleId)
+        .map((response) => response.json());
+    }
+
+    suggestCircle(keywords: string) {
+        return this.http.get(this.circleServiceUrl + keywords)
+        .map((response) => response.json());
+    }
+
+    saveCircle(circle: Circle) {
+        return this.http.post(this.circleServiceUrl, circle)
+        .map((response) => response.json());
+    }
+
+    deleteCircle(circleId: string) {
+        return this.http.delete(this.circleServiceUrl + circleId)
+        .map((response) => response.json());
+    }
+
+    updateCircle(circle: Circle) {
+        return this.http.put(this.circleServiceUrl + circle.circleId, circle)
+        .map((response) => response.json());
+    }
+
+    getCircles(): Observable<any> {
+        return this.http.get(this.circleServiceUrl + this.username + '/circles')
+        .map((res: any) => res.json());
+    }
+
+    getMembers(circleId: string): Observable<any> {
+        return this.http.get(this.circleServiceUrl + circleId + '/members')
+        .map((res:any) => res.json());
+    }
+
+    getMailbox(circleId, page) {
+        return this.http.get(this.mailboxServiceUrl + circleId + '?userName=' + this.username + '&page=' + page)
+        .map((res:any) => res.json());
+    }  
+
+    deleteMail(mail: any) {
+        return this.http.post(this.mailboxServiceUrl + this.username, mail)
+        .map((res:any) => res.json());
+    }
+
+    postMessage(message: string, circleId: string) {
+        let userName = localStorage.getItem('username');
+        let add = {
+            '@context': 'https://www.w3.org/ns/activitystreams',
+            'summary': userName +'added a note',
+            'type': 'Add',
+            'actor': {
+                'type': 'Person',
+                'id': userName,
+            },
+            'object': {
+                'type': 'Note',
+                'content': message
+            },
+            'target': {
+                'type': 'Group',
+                'id': circleId
+            }
+        };
+        console.log(add);
+        return this.http.post(this.activityProducerUrl + '/add', add)
+        .map((res:any) => res.json());
+    }
+
+    joinCircle(circle: Circle, user: User) { 
+        let join = {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": user.userName + ' joined '+ circle.circleName,
+            "type": "Join",
+            "actor": {
+                "type": "Person",
+                "id": user.userName,
+                "name": user.firstName + " " +user.lastName
+            },
+            "object": {
+                "type": "Group",
+                "id": circle.circleId,
+                "name": circle.circleName
+            }
+        };
+        return this.http.post(this.activityProducerUrl + '/join', join)
+        .map((res:any) => res.json());
+    }
+
+    leaveCircle(circleId:string, userName: string) {
+        let leave =  {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": userName + " left " + circleId,
+            "type": "Leave",
+            "actor": {
+                "type": "Person",
+                "id": userName,
+            },
+            "object": {
+                "type": "Place",
+                "id": circleId,
+            }
+        };
+        return this.http.post(this.activityProducerUrl + '/join', leave)
+        .map((res:any) => res.json());
+    }
+
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
+
 import { CreateCircle } from '../createcircle/createcircle.component';
 
 import { UserProfileService } from '../services/user-profile.service';
@@ -15,28 +16,19 @@ export class LeftPanelComponent {
   model: any = {};
 
   constructor( private dialog: MdDialog,
-    private userProfileService: UserProfileService ) {
-    	/*this.circleservice.getCircles().subscribe((circles:string[]) => {
-        this.circle = circles;*/ 
-      }
+    private userProfileService: UserProfileService ) { }
 
-      openDialog() {
-        let dialogRef = this.dialog.open(CreateCircle);
-        dialogRef.afterClosed().subscribe(result => {
-          this.selectedOption = result;
-        });
-      }
+  openDialog() {
+    let dialogRef = this.dialog.open(CreateCircle);
+    dialogRef.afterClosed().subscribe(result => {
+      this.selectedOption = result;
+    });
+  }
 
-      ngOnInit() {
-        let username = localStorage.getItem("username");
-        this.userProfileService.getUser(username)
-        .subscribe(
-          data => {
-            this.model = data;
-          },
-          error =>{
-            console.log(error);
-          }
-          );
-      }
-    }
+  ngOnInit() {
+    let username = localStorage.getItem("username");
+    this.userProfileService.getUser(username)
+    .subscribe(data => this.model = data);
+  }
+  
+}

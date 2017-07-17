@@ -1,8 +1,6 @@
-export class Members
-{ 
-constructor(
-    
-       public id:string,
+export class Member { 
+    constructor(
+        public id:string,
         public username:string,
         public fullname:string,
         public profilePicture:string,
@@ -13,11 +11,6 @@ constructor(
         public readMails:any,
         public unreadMails:any,
         public circleId:string,
-        public circleName:string,
-        
-      )
-    
-{
-
-}
+        public circleName:string ) { 
+    }
 }

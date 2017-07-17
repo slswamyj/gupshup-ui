@@ -41,14 +41,12 @@ export class UserService {
 
 		this.http.post('http://172.23.239.202:9000/oauth/token', body, options)
 		.subscribe(data => {
-			/*console.log(data);*/
-			console.log(data.json());
 			localStorage.setItem('username', username);
 			localStorage.setItem('access_token', data.json().access_token);
 			localStorage.setItem('refresh_token', data.json().refresh_token);
 			this.router.navigate(['landingpage/userdashboard']);
-		},
-		);
+		});
 	}
+	
 }
 
