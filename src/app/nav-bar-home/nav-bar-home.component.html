@@ -17,7 +17,7 @@
 <!-- Modal -->
 <div id="loginModal" data-backdrop="static" data-keyboard="false" class="modal fade" role="dialog">
   <button type="button" class="btn btn-default" id="signupbtn" 
-    [routerLink]="['/register']">Sign up</button>
+    [routerLink]="['/register']" data-dismiss="modal">Sign up</button>
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
@@ -52,7 +52,7 @@
                     <div id="loginbtn" class="form-group">
                     <!-- Button -->
                       <div class="col-sm-12 controls">
-                          <a id="btn-login" class="btn btn-success" (click)="login(username.value, password.value)" data-dismiss="modal">Login</a>
+                          <a id="btn-login" class="btn btn-success" (click)="login(username.value, password.value)">Login</a>
                       </div>
                       </div>
               
