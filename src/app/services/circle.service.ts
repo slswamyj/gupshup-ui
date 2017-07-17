@@ -50,8 +50,8 @@ export class CircleService {
         .map((response) => response.json());
     }
 
-    suggestCircle(keywords: string) {
-        return this.http.get(this.circleServiceUrl + keywords)
+    suggestCircle() {
+        return this.http.get(this.circleServiceUrl)
         .map((response) => response.json());
     }
 
@@ -130,6 +130,8 @@ export class CircleService {
                 "name": circle.circleName
             }
         };
+
+        console.log(join);
         return this.http.post(this.activityProducerUrl + '/join', join)
         .map((res:any) => res.json());
     }

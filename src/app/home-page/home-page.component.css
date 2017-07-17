@@ -1,26 +1,124 @@
-footer {
-	background-color: #35454f;
-	margin: 0px;
-	height: 150px;
-	text-align: center;
-	padding: 20px;
-	position: absolute;
-	width: 100%;
+.btn-login {
+	margin-top: 10px;
+	margin-right: 20px;
 }
 
-h3 {
+.container {
+	width: 1020px;
+	padding: 10px 15px;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #1976D2;
+	font-size: 16px;
+}
+
+.navbar-nav > li > a  {
+	padding: 15px 25px;
+}
+
+.navbar-default .navbar-header .navbar-brand {
+	font-weight: bold;
+	color: #1976D2;
+	font-size: 40px;
+}
+
+.navbar-default .navbar-nav>li>button {
+	font-size: 16px;
+	margin-left: 10px;
+}
+
+.navbar {
+	box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+
+#loginbox {
+	margin-top: 30px;
+}
+
+#forgotpwd {
+	float:right; 
+	font-size: 80%; 
+	position: relative; 
+	top:-10px
+}
+
+#loginpanel {
+	padding-top:30px;
+}
+
+.loginfield {
+	margin-bottom: 25px;
+}
+
+#signupbtn {
+	float: right;
+	margin: 20px 20px 20px 20px;
+	width: 100px;
+}
+
+#loginbtn {
+	margin-top:10px;
+}
+
+#nologin {
+	border-top: 1px solid#888; 
+	padding-top:15px; 
+	font-size:85%
+}
+
+#btn-login {
+	width: 100%;
+	font-size: 15px;
+}
+
+.modal-dialog {
+	margin-top: 11.5%;
+	width:400px;
+}
+
+.modal-body{
+	margin:4%;
+}
+
+.login-title{
+	font-size: 20px;
+	font-weight: bold;
 	color: #f8f8f8;
 }
 
-h5 {
-	color: #e7e7e7;
+.modal-header {
+	padding-left: 6%;
+	/*background: #337ab7;  For browsers that do not support gradients */
+	/*background: -webkit-linear-gradient(left top, #337ab7, #e5e5e5); /* For Safari 5.1 to 6.0 */*/
+	/*background: -o-linear-gradient(bottom right, #337ab7, #e5e5e5); /* For Opera 11.1 to 12.0 */*/
+	/*background: -moz-linear-gradient(bottom right, #337ab7, #e5e5e5); /* For Firefox 3.6 to 15 */*/
+	/*background: linear-gradient(to bottom right, #337ab7, #e5e5e5);*/
+
+	background: #337ab7; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left, #337ab7 , #e5e5e5); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(right, #337ab7, #e5e5e5); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(right, #337ab7, #e5e5e5); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right, #337ab7 , #e5e5e5);
 }
 
-a {
-	color: #e7e7e7;
+#cloud-scroll {
+	position:absolute;
+	width: 100%;
+	height: 100%;
+	background: url("../../assets/images/collage2.jpg"), url("../../assets/images/collage1.jpg");
+	background-position: center center;
+	background-size: cover;
+	-webkit-animation: backgroundScroll 30s linear infinite;
+	animation: backgroundScroll 30s linear infinite;
 }
 
-#icon {
-	margin-left: 15px;
+@-webkit-keyframes backgroundScroll {
+	from {background-position: 0 0;}
+	to {background-position: 0 -520px;}
 }
 
+@keyframes backgroundScroll {
+	from {background-position: 0 0;}
+	to {background-position: 0 -520px;}
+}

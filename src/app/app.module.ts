@@ -27,7 +27,6 @@ import { ChatBoxComponent } from './chatbox/chatbox.component';
 import { InboxPanelComponent } from './inbox-panel/inbox-panel.component';
 import { HomeContentComponent } from './home-content/home-content.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { NavBarHomeComponent } from './nav-bar-home/nav-bar-home.component';
 import { RegisterComponent } from './register/register.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
@@ -62,7 +61,6 @@ import { StompService } from 'ng2-stomp-service';
     InboxPanelComponent,
     HomeContentComponent,
     HomePageComponent,
-    NavBarHomeComponent,
     RegisterComponent,
     LandingPageComponent
   ],

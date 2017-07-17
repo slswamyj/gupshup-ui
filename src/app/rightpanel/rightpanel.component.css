@@ -5,13 +5,14 @@
   transition: 0.3s;
 }
 #channel_recommendation_div {
-
+  padding: 0 5px;
 }
 
 .channel_name_header {
   text-transform: uppercase;
   font-size: 15px;
 }
+
 #group_image_div {
   padding-right: 0px;
 }

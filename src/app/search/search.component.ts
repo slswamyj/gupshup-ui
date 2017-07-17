@@ -1,19 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router }    from '@angular/router';
+
+import { Circle } from '../model/Circle';
+import { User } from '../model/User';
+import { CircleService } from '../services/circle.service';
+import { UserProfileService } from '../services/user-profile.service';
+
 
 @Component({
   selector: 'search-bar',
   templateUrl: 'search.component.html',
   styleUrls: ['search.component.css']
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit{
 	
-	constructor(private router: Router) {}
+  circles: Circle[];
+  user: User;
 
-	/*name: string;*/
+	constructor(
+    private router: Router,
+    private circleservice: CircleService,
+    private userProfileService: UserProfileService) {}
 
-	search(username: string) {
+  ngOnInit() {
+    this.circleservice.suggestCircle()
+    .subscribe(data => this.circles = data);
+    this.userProfileService.getUser(localStorage.getItem('username'))
+    .subscribe(data => this.user = data);
+  }
+
+	search(circleId: string) {
 		/*this.name = username;*/
-		this.router.navigate(['userprofile', username]);	
+		this.router.navigate(['circleinbox', circleId]);	
 	}
+
+  joinCircle(circle: Circle){
+    console.log(this.user);
+    this.circleservice.joinCircle(circle, this.user).subscribe( data => console.log(data));
+  }
 }

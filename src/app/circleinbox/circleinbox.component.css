@@ -1,20 +1,18 @@
-
-#mainInboxConatiner {
-	background-color: white;
-	height: 800px;
-}
 #navbar_row {
 	margin: 0 auto;
 }
+
 #navbar_column {
 	padding: 0px;
 }
+
 header {
 	margin: 0px auto;
 }
 section {
 	margin: 0px auto;
 }
+
 .material-icons {
 	font-size: 20px;
 }
@@ -28,7 +26,7 @@ section {
 #inboxMessageDiv {
 	padding-top: 30px;
 	padding-left: 50px;
-	height: 750px;
+	height: 575px;
 	overflow-y: scroll;
 }
 /* Let's get this party started */
@@ -57,6 +55,7 @@ section {
 .inboxHeadingDiv {
 	padding-left: 50px;
 }
+
 #inboxMessageRow {
 	margin: 0 auto;
 }
@@ -85,6 +84,7 @@ section {
 	height: 20px;
 	border-radius: 10px 10px 10px 10px;
 }
+
 #messageContent {
 	margin-top: 0px;
 }

@@ -21,6 +21,8 @@ export class UserService {
 	}
 
 	create(user: User) {
+		console.log(user);
+		
 		return this.http.post('http://172.23.239.176:8080/userservice/user', user)
 		.map((response: Response) => {
 			console.log(response.json());
@@ -45,6 +47,8 @@ export class UserService {
 			localStorage.setItem('access_token', data.json().access_token);
 			localStorage.setItem('refresh_token', data.json().refresh_token);
 			this.router.navigate(['landingpage/userdashboard']);
+		}, error => {
+			this.router.navigate(['/gupshup']);
 		});
 	}
 	
