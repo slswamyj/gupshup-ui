@@ -25,20 +25,23 @@
 <!-- inbox message row -->
 <div class="row" id="inboxMessageRow">
 	<div class="col-lg-12" id="inboxMessageDiv">
-
-		<div class="messageWrap" *ngFor = "let message of myinbox">
-			<div class="row" id="msgcard">
+		<ul class="chat" *ngFor=" let message of myinbox">
+			<li [ngClass]="{left: username, 'clearfix': username}">
+			<span class="chat-img pull-left">
+				<img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+			</span>
+			<div class="chat-body clearfix">
+				<div class="header">
+					<strong class="primary-font">{{ message.from }}</strong> <small class="pull-right text-muted">
+					<span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+				</div>
 				<p>
-					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0RPebtJzQWUs1L1sP3dnYv5aSq2KTGk4lsKV7-QUdlVH2_D_W"
-					class="user_image">&nbsp;&nbsp;&nbsp;{{message.from}}
+					{{ message.message}}
 				</p>
-			</div><!-- header row end  -->
-			<div class="row" id="messageContent">
-				<div class="well well-sm meassage">{{message.message}}</div>
 			</div>
-		</div>
-
-	</div>
+		</li>
+</ul>
+</div>
 </div><!-- inbox message row end -->
 
 <!-- post message row -->
