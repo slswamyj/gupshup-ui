@@ -14,9 +14,10 @@ import {DeleteCircleComponent} from '../deletecircle/deletecircle.component';
 })
 export class CircleInboxComponent {
   myinbox:any = [];
-  members:Circle;
   circle:Circle;
   username: string;
+  page = 0;
+  circleName: string;
 
   constructor(
     private circleservice : CircleService,
@@ -26,8 +27,9 @@ export class CircleInboxComponent {
   } 
 
   ngOnInit() {	
-    this.route.params.switchMap((param:Params) => 
-      this.circleservice.getMailbox(param['circle'],0))
+    this.route.params.switchMap((param:Params) => {
+      this.circleName = param['circle'];
+      return this.circleservice.getMailbox(param['circle'],this.page)})
     .subscribe((Circleinbox) => {
       this.myinbox = Circleinbox.reverse();
     });
@@ -41,23 +43,14 @@ export class CircleInboxComponent {
     this.circleservice.circleMessages$.subscribe((data) => {
       this.myinbox.push(data);
     });
+
     this.username = localStorage.getItem('username');
-  }
-
-
-  Members() {
-    this.circleservice.getMembers(this.myinbox).subscribe((mem) => {
-      this.members = mem;
-    });
-
   }
 
   openDialog() {
     this.dialog.open(EditCircleComponent, {
-      data: {
-        Keywords: this.circle.keywords,
-        Description:this.circle.circleDescription,
-        Circle:this.circle
+      'data': {
+        'circle': this.circle
       }
     });
   }
@@ -65,15 +58,20 @@ export class CircleInboxComponent {
   deleteCircle() {
 
     this.dialog.open(DeleteCircleComponent, {
-      data: {
-        Keywords: this.circle.keywords,
-        Description:this.circle.circleDescription,
-        Circle:this.circle
+      'data': {
+        'circle': this.circle
       }
     });
-
-
   }
+
+  getMailbox(page){
+    this.page = page;
+    this.circleservice.getMailbox(this.circleName,page)
+    .subscribe((Circleinbox) => {
+      this.myinbox = Circleinbox.reverse();
+    });
+  }
+
 }
 
 

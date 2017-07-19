@@ -25,19 +25,15 @@ export class EditCircleComponent {
   constructor(public dialogRef: MdDialogRef<EditCircleComponent>,
     private circleService:CircleService,
     private fb:FormBuilder,
-
     @Inject(MD_DIALOG_DATA) public data: any) {
-
-    console.log('data', this.data.Circle);
     this.editForm();
   }     
 
-  editForm()
-  { 
+  editForm() { 
     this.editcircleform=this.fb.group({
-      keywords:this.data.Keywords,
-      description:this.data.Description,
-      Circle:this.data.Circle
+      keywords:this.data.circle.keywords,
+      description:this.data.circle.Description,
+      circleName:this.data.circle.circleName
 
     })
 

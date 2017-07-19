@@ -35,6 +35,7 @@ import { UserProfileService } from './services/user-profile.service';
 import { UpdateProfileService } from './services/update-profile.service';
 import { UserService } from './services/user.service';
 import { SocketService } from './services/socket.service';
+import { RecommendationService } from './services/recommendation.service';
 import { CanActivateViaAuthGuard } from './services/auth-guard.service';
 
 import { StompService } from 'ng2-stomp-service';
@@ -84,6 +85,7 @@ import { StompService } from 'ng2-stomp-service';
     UserService,
     StompService,
     SocketService,
+    RecommendationService,
     CanActivateViaAuthGuard
   ],
   bootstrap: [ AppComponent ]

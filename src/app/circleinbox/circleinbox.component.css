@@ -9,6 +9,7 @@
 header {
 	margin: 0px auto;
 }
+
 section {
 	margin: 0px auto;
 }
@@ -21,6 +22,10 @@ section {
 }
 .iconsDelete {
 	margin: 20px 20px 20px 0px;
+}
+
+.iconsLeave{
+  margin: 20px 20px 20px 0px;
 }
 
 #inboxMessageDiv {
@@ -119,12 +124,6 @@ section {
 {
     margin-left: 60px;
 }
-
-.chat li.right .chat-body
-{
-    margin-right: 60px;
-}
-
 
 .chat li .chat-body p
 {

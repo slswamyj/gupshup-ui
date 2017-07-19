@@ -2,12 +2,12 @@
 	<!-- heading -->
     <h5 class="channel_heading">Channnels</h5>
     <!-- list of the channels which user subscribed to -->
-    <ul class="channel_list"  *ngFor="let items of circle">
+    <ul class="channel_list"  *ngFor="let items of circles">
     	<li>
-       		<a (click)="selectCircle(items.circleId)">
+       		<a (click)="selectCircle(items.circleId);items.unreadMails = 0">
        			<img src="http://4c3f12db975a1c8b62fd-ee282e5b70d98fac94cba689ef7806d7.r43.cf1.rackcdn.com/default_group_normal.png"
             	class="group_image">&nbsp;&nbsp;&nbsp;{{items.circleName}}
-              <span class="badge">{{items.unreadMails}}</span>
+              <span class="badge" *ngIf="items.unreadMails > 0">{{items.unreadMails}}</span>
             </a>
        	</li>
     </ul>
