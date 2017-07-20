@@ -24,15 +24,14 @@ export class DeleteCircleComponent {
     private circleService:CircleService,
     private fb:FormBuilder,
     @Inject(MD_DIALOG_DATA) public data: any) {
-    console.log('data', this.data.Circle);
     this.editForm();
   }     
 
   editForm()  { 
     this.editcircleform=this.fb.group({
-      keywords:this.data.Keywords,
-      description:this.data.Description,
-      Circle:this.data.Circle
+      keywords:this.data.circle.Keywords,
+      description:this.data.circle.Description,
+      circleName:this.data.circle.circleName
     })
   }
 
@@ -43,14 +42,11 @@ export class DeleteCircleComponent {
 
   deleteCircle() {
     const formModel = this.editcircleform.value;
-
     const saveCircle= {
       circleName: formModel.Circle as string,
       circleDescription:formModel.description as string,
       keywords: formModel.keywords as string[]
     };
-
-    console.log("circle details :"+saveCircle.keywords+"cname :"+saveCircle.circleName+" des: "+saveCircle.circleDescription);
     return saveCircle;
   }
 

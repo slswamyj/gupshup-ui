@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { CreateCircle } from '../createcircle/createcircle.component';
@@ -13,9 +13,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class CircleService {
+export class CircleService implements OnInit{
 
-    private username: string;
     private selectCircleSource = new BehaviorSubject<string>(undefined);
     private selectMemberSource = new BehaviorSubject<string>(undefined);
     private circleMessageSource = new Subject<string>();
@@ -24,8 +23,9 @@ export class CircleService {
     private mailboxServiceUrl = 'http://172.23.239.176:8080/mailboxservice/mailbox/';
     private activityProducerUrl = 'http://172.23.239.176:8080/activityproducer/activity';
     
-    constructor(private http: Http) {
-        this.username = localStorage.getItem('username');
+    constructor(private http: Http) { }
+
+    ngOnInit() {
     }
 
     // Observable string streams
@@ -70,8 +70,8 @@ export class CircleService {
         .map((response) => response.json());
     }
 
-    getCircles(): Observable<any> {
-        return this.http.get(this.circleServiceUrl + this.username + '/circles')
+    getCircles(username: string): Observable<any> {
+        return this.http.get(this.circleServiceUrl + username + '/circles')
         .map((res: any) => res.json());
     }
 
@@ -81,12 +81,14 @@ export class CircleService {
     }
 
     getMailbox(circleId, page) {
-        return this.http.get(this.mailboxServiceUrl + circleId + '?userName=' + this.username + '&page=' + page)
+        let username = localStorage.getItem('username');
+        return this.http.get(this.mailboxServiceUrl + circleId + '?userName=' + username + '&page=' + page)
         .map((res:any) => res.json());
     }  
 
     deleteMail(mail: any) {
-        return this.http.post(this.mailboxServiceUrl + this.username, mail)
+        let username = localStorage.getItem('username');
+        return this.http.post(this.mailboxServiceUrl + username, mail)
         .map((res:any) => res.json());
     }
 

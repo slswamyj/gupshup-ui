@@ -11,29 +11,28 @@ import { SocketService } from '../services/socket.service';
   styleUrls: ['./circlelist.component.css']
 })
 
-export class CircleListComponent {
-  title="Gupshup";
-  circle:any[];
+export class CircleListComponent implements OnInit {
+
+  circles:any[];
+
   constructor(
     private router: Router,
     private circleservice: CircleService,
     private socketService: SocketService,
-    public dialog: MdDialog) {
-    this.circleservice.getCircles().subscribe((circles:any[]) => {
-      this.circle = circles; 
-    })}
+    public dialog: MdDialog) { }
 
-    selectCircle(circle){
-      this.socketService.subscribeCircle(circle);
-      this.circleservice.selectCircle(circle);
-      this.router.navigate(['/landingpage/userdashboard/circleinbox',circle]);
-    }
+  ngOnInit() {
+    let username = localStorage.getItem('username');
+    this.circleservice.getCircles(username).subscribe((circles:any[]) => {
+      this.circles = circles; });
+  }
 
-/*    openDialog() {
-      let dialogRef = this.dialog.open(CreateCircle);
-      dialogRef.afterClosed().subscribe(result => {
-        this.selectedOption = result;
-    });
-  }*/
+  selectCircle(circleId,index){
+
+    this.socketService.subscribeCircle(circleId);
+    this.circleservice.selectCircle(circleId);
+    this.router.navigate(['/landingpage/userdashboard/circleinbox',circleId]);
+  }
+
 }
 
