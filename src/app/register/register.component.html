@@ -1,4 +1,63 @@
 <div class="container" id="signupContainer">
+
+    <div id="signupbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Sign Up</div>
+            </div><!-- panel-heading end -->
+
+            <!-- panel body -->
+            <div class="panel-body">
+                <form (ngSubmit)="register()" #registerForm="ngForm" id="signupform" class="form-horizontal" data-toggle="validator" role="form">
+
+                    <div class="input-group signupfield">
+                        <!-- <div> -->
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="signup-username" type="text" class="form-control" name="username" value=""placeholder="Username" #username="ngModel" 
+                        required [(ngModel)]="model.userName">
+                        <!-- </div> -->
+                        <!-- <div [hidden]="username.valid || username.pristine" class="alert alert-danger">User name is required.
+                        </div> -->
+                    </div>
+                    <div [hidden]="username.valid || username.pristine"
+                    class="alertMessage">User name is required.
+                    </div>
+
+
+                    <div class="input-group signupfield">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span><input type="password"data-minlength="8" class="form-control" data-error="must enter minimum of 8 characters." id="password" placeholder="Password"
+                        required [(ngModel)]="model.password" name="password">
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div id="signupbtn" class="form-group">
+                        <!-- Button -->
+                        <div class="col-sm-12 controls">
+                            <button id="btn-signup" class="btn btn-success"
+                            [disabled]="!registerForm.form.valid">Sign Up</button>
+                        </div>
+                    </div>
+
+                    <!-- footer content -->
+                    <div class="form-group">
+                        <div class="col-md-12 control">
+                            <div id="nosignup">Already have an account?
+                                <a routerLink="/gupshup">Login here</a>
+                            </div>
+                        </div>
+                    </div><!-- footer content end -->
+
+
+                </form>
+            </div><!-- panel body end  -->
+        </div><!-- panel end -->
+    </div><!-- signupbox end -->
+</div><!-- signupConatiner end -->
+
+
+
+
+
+<!-- <div class="container" id="signupContainer">
     <div id="signupbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -7,15 +66,14 @@
             <div class="panel-body" >
                 <form (ngSubmit)="register()" #registerForm="ngForm" id="signupform" class="form-horizontal" data-toggle="validator" role="form">
                     <div class="form-group">
-                        <label for="userName" class="col-md-4 control-label labels">Username</label>
+                        <label for="userName" class="col-md-3 control-label labels">Username</label>
                         <div class="col-md-8">
-                            
                             <input type="text" class="form-control" id="userName" placeholder="Username" required [(ngModel)]="model.userName" name="userName" #username="ngModel" >
                             <div [hidden]="username.valid || username.pristine" class="alert alert-danger">User name is required.</div>
                         </div>
-                    </div>
+                    </div> -->
                                     
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="firstName" class="col-md-4 control-label labels">First Name</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" id="firstName" placeholder="First Name" required [(ngModel)]="model.firstName" name="firstName" #firstname="ngModel">
@@ -28,61 +86,31 @@
                         	<input type="text" class="form-control" id="lastname" placeholder="Last Name" [(ngModel)]="model.lastName" name="lastname" #lastname="ngModel">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="gender" class="col-md-4 control-label labels">Gender</label>
-                    	<div class="col-md-8">
-                        	<select class="form-control" id="gender" placeholder="Gender" [(ngModel)]="model.gender" name="gender" #gender="ngModel">
-                                <option *ngFor="let gen of genders" [value]="gen">{{gen}}</option>
-                            </select>
-                            
-                            <!-- <div [hidden]="gender.valid || gender.pristine" class="alert alert-danger">Gender is required.</div> -->
-                        </div>
-                  	</div>
-	               	<div class="form-group">
-                        <label for="email" class="col-md-4 control-label labels">Email</label>
-                    	<div class="col-md-8">
-                            <input type="email" class="form-control" id="email" placeholder="Email" required [(ngModel)]="model.emailId" name="email">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                  	</div>
-                    <div class="form-group">
-                        <label for="dob" class="col-md-4 control-label labels">Date of Birth</label>
-                        <div class="col-md-8">
-                            <input type="Date" class="form-control"  id="dob" [(ngModel)]="model.dob" name="dob">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                  	<div class="form-group">
-                        <label for="password" class="col-md-4 control-label labels">Password</label>
+ -->                    
+                  	<!-- <div class="form-group">
+                        <label for="password" class="col-md-3 control-label labels">Password</label>
                         <div class="col-md-8">
                             <input type="password" data-minlength="8" class="form-control" data-error="must enter minimum of 8 characters." id="password" placeholder="Password" required [(ngModel)]="model.password" name="password">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="cpasswd" class="col-md-4 control-label labels">Confirm Password</label>
-                        <div class="col-md-8">
-                            <input type="password" class="form-control" id="cpasswd" data-match="#password" data-match-error="passwords don't match." placeholder="Confirm Password" required>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                    <!-- Button -->                                        
-                    	<div class="col-md-offset-4 col-md-8">
+                    <div class="form-group"> -->
+                    <!-- Button -->
+                        <!-- <div class="col-md-3"></div>                                    
+                    	<div class="col-md-8">
                             <button id="btn-signup" type="submit" class="btn btn-success col-sm-3" [disabled]="!registerForm.form.valid"><i class="icon-hand-right"></i>Register</button>
-                            <button id="btn-reset" type="button" class="btn btn-primary col-sm-3" (click)="registerForm.reset()"><i class="icon-hand-right"></i>Reset</button>
 		                </div>
                     </div>
 	            </form>
                 <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-8">Already have an account! 
-                        <a href="/gupshup">sign in Here</a>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-8">Already have an account? 
+                        <a href="/gupshup">Login here</a>
                     </div>
                 </div>
             </div>
         </div>
 	</div> 
-</div>
+</div> -->
     

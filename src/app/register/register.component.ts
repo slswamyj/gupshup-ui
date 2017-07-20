@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { UserService } from '../services/user.service';
 import { MdSnackBar } from '@angular/material';
 
@@ -12,22 +11,25 @@ import { MdSnackBar } from '@angular/material';
 
 export class RegisterComponent {
 	model: any = {};
-	loading = false;
 	
-	genders = ['male','female'];
+	/*genders = ['male','female'];*/
 
 	constructor(
 		private userService: UserService,
 		private mdSnackBar: MdSnackBar){}
 
 	register() {
-		this.loading = true;
+		this.model.firstName = "";
+		this.model.lastName = "";
+		this.model.gender = "";
+		this.model.emailId = "";
 		this.model.contactNo = "";
+		this.model.profilePhoto = "https://t3.ftcdn.net/jpg/00/64/67/52/240_F_64675209_7ve2XQANuzuHjMZXP3aIYIpsDKEbF5dD.jpg";
 		this.model.dob = "";
 		this.model.following = [];
-		if(this.model.lastName == null) {
+/*		if(this.model.lastName == null) {
 			this.model.lastName = "";
-		}
+		}*/
 		this.userService.create(this.model)
 			.subscribe(
 				data => { 
