@@ -15,8 +15,10 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class CircleService implements OnInit{
 
-    private selectCircleSource = new BehaviorSubject<string>(undefined);
-    private selectMemberSource = new BehaviorSubject<string>(undefined);
+    private selectCircleSource = new Subject<Circle>();
+    private selectMemberSource = new Subject<string>();
+    private addCircleSource = new Subject<Circle>();
+    private removeCircleSource = new Subject<Circle>();
     private circleMessageSource = new Subject<string>();
 
     private circleServiceUrl = 'http://172.23.239.176:8080/circleservice/circle/';
@@ -32,13 +34,23 @@ export class CircleService implements OnInit{
     circleSelected$ = this.selectCircleSource.asObservable();
     memberSelected$ = this.selectMemberSource.asObservable();
     circleMessages$ = this.circleMessageSource.asObservable();
+    circleRemoved$ = this.removeCircleSource.asObservable();
+    circleAdded$ = this.addCircleSource.asObservable();
+
+    public addCircle(circle) {
+        this.addCircleSource.next(circle);
+    }
+
+    public removeCircle(circle) {
+        this.removeCircleSource.next(circle);
+    }
 
     public setMessage(message: string) {
         this.circleMessageSource.next(message);
     }
 
-    public selectCircle(circleName: string) {
-        this.selectCircleSource.next(circleName);
+    public selectCircle(circle) {
+        this.selectCircleSource.next(circle);
     }
 
     public selectMember(userName: string) {
@@ -62,12 +74,12 @@ export class CircleService implements OnInit{
 
     deleteCircle(circleId: string) {
         return this.http.delete(this.circleServiceUrl + circleId)
-        .map((response) => response.json());
+        .map((response) => response.text());
     }
 
     updateCircle(circle: Circle) {
         return this.http.put(this.circleServiceUrl + circle.circleId, circle)
-        .map((response) => response.json());
+        .map((response) => response.text());
     }
 
     getCircles(username: string): Observable<any> {
@@ -88,7 +100,7 @@ export class CircleService implements OnInit{
 
     deleteMail(mail: any) {
         let username = localStorage.getItem('username');
-        return this.http.post(this.mailboxServiceUrl + username, mail)
+        return this.http.post(this.mailboxServiceUrl +mail.circleId+"/user/"+ username, mail)
         .map((res:any) => res.json());
     }
 
@@ -111,7 +123,6 @@ export class CircleService implements OnInit{
                 'id': circleId
             }
         };
-        console.log(add);
         return this.http.post(this.activityProducerUrl + '/add', add)
         .map((res:any) => res.json());
     }
@@ -133,7 +144,6 @@ export class CircleService implements OnInit{
             }
         };
 
-        console.log(join);
         return this.http.post(this.activityProducerUrl + '/join', join)
         .map((res:any) => res.json());
     }
@@ -148,7 +158,7 @@ export class CircleService implements OnInit{
                 "id": userName,
             },
             "object": {
-                "type": "Place",
+                "type": "Group",
                 "id": circleId,
             }
         };

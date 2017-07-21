@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit{
   circles: Circle[];
   user: User;
 
-	constructor(
+  constructor(
     private router: Router,
     private circleservice: CircleService,
     private userProfileService: UserProfileService) {}
@@ -29,13 +29,14 @@ export class SearchComponent implements OnInit{
     .subscribe(data => this.user = data);
   }
 
-	search(circleId: string) {
-		/*this.name = username;*/
-		this.router.navigate(['circleinbox', circleId]);	
-	}
+  search(circleId: string) {
+    this.router.navigate(['circleinbox', circleId]);	
+  }
 
   joinCircle(circle: Circle){
-    console.log(this.user);
-    this.circleservice.joinCircle(circle, this.user).subscribe( data => console.log(data));
+    this.circleservice.joinCircle(circle, this.user).subscribe( data => {
+      this.circleservice.addCircle(circle);
+      console.log(data +"here");
+    });
   }
 }

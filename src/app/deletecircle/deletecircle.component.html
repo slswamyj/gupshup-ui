@@ -1,27 +1,29 @@
 <!-- dialog box  -->
 <!-- form to delete a circle  -->
-<form [formGroup]="editcircleform" (ngSubmit)="editCircle()" novalidate>
-  <h2>Delete Circle</h2>
-  <div class="form-group">
-    <div>
-      <label class="center-block" >GroupName: </label>
-      <input class="form-control" formControlName="circleName" id="circleName" readonly>
-    </div>
-    <div>
-      <label class="center-block">Description:</label>
-      <input class="form-control" formControlName="description"  id="desc" readonly>
-    </div>
-    <div>
-      <label class="center-block">Keywords:</label>
-      <input class="form-control" formControlName="keywords" readonly>
-    </div>
+<div class="container">
+  <div class="row">
+    <form [formGroup]="deleteCircleForm" (ngSubmit)="deleteCircle()" novalidate>
+      <h2>Delete Circle</h2>
+      <div class="form-group">
+        <div>
+          <label class="center-block" >GroupName: </label>
+          <input class="form-control" formControlName="circleName" id="circleName" readonly>
+        </div>
+        <div>
+          <label class="center-block">Description:</label>
+          <input class="form-control" formControlName="description"  id="desc" readonly>
+        </div>
+        <div>
+          <label class="center-block">Keywords:</label>
+          <input class="form-control" formControlName="keywords" readonly>
+        </div>
+      </div>
+      <div><p>Are you sure to delete this group?</p></div>
+      <div>
+        <button type="Submit" md-raised-button>Ok</button>
+        <button type="button" md-button
+        (click)="dialogRef.close()">Cancel</button>
+      </div>
+    </form>
   </div>
-  <div><p>Are you sure to delete this group?</p></div>
-  <div>
-    <button type="Submit" md-raised-button
-          (click)="delCircle()">Ok</button>
-    <button type="button" md-button
-          (click)="dialogRef.close()">Cancel</button>
-          
-  </div>
-</form>
+</div>

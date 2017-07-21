@@ -1,11 +1,15 @@
 <div class="input-group" id="post">
 	<span class="input-group-addon glyphicon glyphicon-plus">	</span>
-	<textarea class="form-control"  placeholder="type something.." #message></textarea> 
-	<span class="input-group-addon" id="send">
-    <a type="button" class="btn" (click)="sendMessage(message.value);message.value=''">
-     <span class="glyphicon glyphicon-send"></span>
-   </a>
- </span>
+	<textarea class="form-control"  placeholder="type something.."
+  (keyup.enter)="sendMessage(message.value);message.value=''" 
+  #message>
+</textarea> 
+<span class="input-group-addon" id="send">
+  <a type="button" class="btn" 
+  (click)="sendMessage(message.value);message.value=''" >
+  <span class="glyphicon glyphicon-send"></span>
+</a>
+</span>
 </div>
 
 

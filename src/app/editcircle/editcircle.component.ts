@@ -17,45 +17,34 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class EditCircleComponent {
 
   editcircleform:FormGroup;
-  cirName:string;
-  key:string[];
-  obj:Circle;
   circle:Circle;
 
   constructor(public dialogRef: MdDialogRef<EditCircleComponent>,
     private circleService:CircleService,
     private fb:FormBuilder,
     @Inject(MD_DIALOG_DATA) public data: any) {
+    this.circle = data.circle;
     this.editForm();
   }     
 
   editForm() { 
     this.editcircleform=this.fb.group({
-      keywords:this.data.circle.keywords,
-      description:this.data.circle.Description,
+      keywords:this.data.circle.keywords.join(','),
+      description:this.data.circle.circleDescription,
       circleName:this.data.circle.circleName
-
     })
-
   }
+  
   editCircle(){
-    this.circle = this.SaveCircle();
-    this.circleService.saveCircle(this.circle).subscribe();
-
+    this.dialogRef.close();
+    this.saveCircle();
+    this.circleService.updateCircle(this.circle).subscribe((data)=> console.log(data));
   }
 
-  SaveCircle(): Circle {
+  saveCircle() {
     const formModel = this.editcircleform.value;
-
-    const saveCircle: Circle = {
-
-      circleName: formModel.Circle as string,
-      circleDescription:formModel.description as string,
-      keywords: formModel.keywords as string[]
-    };
-    
-    console.log("circle details :"+saveCircle.keywords+"cname :"+saveCircle.circleName+" des: "+saveCircle.circleDescription);
-    return saveCircle;
+    this.circle.circleDescription = formModel.description as string,
+    this.circle.keywords =  formModel.keywords.split(',')
   }
 
 }

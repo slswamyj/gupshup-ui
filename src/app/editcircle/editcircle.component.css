@@ -1,18 +1,7 @@
-.md-dialog-container{
-	width: 500px;
-	height: 1000px;
-	align-content: center;
+.container{
+  width: 500px;
 }
-.example-button-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-div
-{
-	margin-bottom: 20px;
-}
-#desc,#circle
-{
 
+div {
+	margin-bottom: 20px;
 }

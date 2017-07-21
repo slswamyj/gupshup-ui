@@ -8,24 +8,24 @@
 				</h3>
 			</section>
 			<section class="navbar-text navbar-right clearfix iconsEdit" *ngIf="circle.circleCreatedBy == username">
-				<a (click)=openDialog() class="iconLink">
+				<a (click)=editCircle() class="iconLink">
 					<i class="material-icons">edit</i>
 				</a>
 			</section>
 			<section class="navbar-text navbar-right clearfix iconsDelete"
 			*ngIf="circle.circleCreatedBy == username">
-				<a (click)=deleteCircle() class="iconLink">
-					<i class="material-icons">delete</i>
-				</a>
-			</section>
-			<section class="navbar-text navbar-right clearfix iconsLeave"
-			*ngIf="circle.circleCreatedBy != username">
-				<a (click)=leaveCircle() class="iconLink">
-					<i class="material-icons">arrow forward</i>
-				</a>
-			</section>
-		</header><!--  header end  -->
-	</div>
+			<a (click)=deleteCircle() class="iconLink">
+				<i class="material-icons">delete</i>
+			</a>
+		</section>
+		<section class="navbar-text navbar-right clearfix iconsLeave"
+		*ngIf="circle.circleCreatedBy != username">
+		<a (click)=leaveCircle(circle.circleId) class="iconLink">
+			<i class="material-icons">arrow forward</i>
+		</a>
+	</section>
+</header><!--  header end  -->
+</div>
 </div><!-- inbox header row end -->
 
 
@@ -38,21 +38,24 @@
 			</span>
 			<div class="chat-body clearfix">
 				<div class="header">
-					<strong class="primary-font">{{ message.from }}</strong> <small class="pull-right text-muted">
-					<span class="glyphicon glyphicon-time"></span>12 mins ago
+					<strong class="primary-font" *ngIf="message.from != username; else name">{{message.from}}</strong> 
+					<ng-template #name><strong>You</strong></ng-template> 
+					<small class="pull-right text-muted">
+					<span class="glyphicon glyphicon-time"></span>
+					{{ formatDate(message.timeCreated) }}
 					<button md-icon-button [mdMenuTriggerFor]="menu">
 						<md-icon>more_vert</md-icon>
 					</button>
 				</small>
 
 				<md-menu #menu="mdMenu">
-					<button md-menu-item>
+					<button md-menu-item (click)="deleteMail(message)">
 						<span>Delete</span>
 					</button>
 				</md-menu>
 			</div>
 			<p>
-				{{ message.message}}
+				{{ message.message }}
 			</p>
 		</div>
 	</li>

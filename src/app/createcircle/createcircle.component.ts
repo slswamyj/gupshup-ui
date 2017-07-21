@@ -26,7 +26,7 @@ export class CreateCircle
     this.circleform=this.fb.group({
       circleName:"",
       circleDescription:"",
-      keywords: this.fb.array([])
+      keywords: ""
      });
   }
 
@@ -34,7 +34,8 @@ export class CreateCircle
     this.circle = this.SaveCircle();
     this.circleService.saveCircle(this.circle)
         .subscribe(data => {
-            console.log(data.json());
+            this.circleService.addCircle(this.circle);
+            console.log(data);
          },
          error => {
            console.log(error);
@@ -49,12 +50,11 @@ export class CreateCircle
     const saveCircle: Circle = {
       circleName: formModel.circleName as string,
       circleDescription:formModel.circleDescription as string,
-      keywords: formModel.keywords as string[],
+      keywords: formModel.keywords.split(','),
       circleCreatedBy: username,
       circleCreatedDate: null,
       circleMembers: []
     };
-    console.log(formModel.keywords);
     return saveCircle;
   }
 

@@ -3,9 +3,15 @@
   <ul class="user_list" *ngFor="let items of members">
     <li>
       <a (click)="selectMember(items.memberName)">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0RPebtJzQWUs1L1sP3dnYv5aSq2KTGk4lsKV7-QUdlVH2_D_W"
-        class="user_image">&nbsp;&nbsp;&nbsp;{{items.username}}
-      </a>
-    </li>
-  </ul>
+       <span *ngIf="items.status == 1" >
+         <img src="/assets/images/online2.png" id="online"/>
+       </span>
+       <span *ngIf="items.status != 1">
+         &#9675;
+       </span>
+       &nbsp;&nbsp;
+       {{ items.username }}
+     </a>
+   </li>
+ </ul>
 </div>

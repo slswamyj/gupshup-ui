@@ -25,14 +25,20 @@ export class CircleListComponent implements OnInit {
     let username = localStorage.getItem('username');
     this.circleservice.getCircles(username).subscribe((circles:any[]) => {
       this.circles = circles; });
+
+    this.circleservice.circleAdded$.subscribe(data => {
+      this.circles.push(data);});
+
+    this.circleservice.circleRemoved$.subscribe( data => {
+      this.circles = this.circles.filter( circle => circle.circleId != data.circleId);
+    });
   }
 
-  selectCircle(circleId,index){
+  selectCircle(circle){
 
-    this.socketService.subscribeCircle(circleId);
-    this.circleservice.selectCircle(circleId);
-    this.router.navigate(['/landingpage/userdashboard/circleinbox',circleId]);
+    this.socketService.subscribeCircle(circle.circleId);
+    this.circleservice.selectCircle(circle);
+    this.router.navigate(['/landingpage/userdashboard/circleinbox',circle.circleId]);
   }
 
 }
-
