@@ -11,43 +11,32 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './deletecircle.component.html',
   styleUrls: ['./deletecircle.component.css'],
 })
-
-
 export class DeleteCircleComponent {
-  editcircleform:FormGroup;
-  cirName:string;
-  key:string[];
-  obj:Circle;
+  deleteCircleForm:FormGroup;
   circle:any;
 
   constructor(public dialogRef: MdDialogRef<DeleteCircleComponent>,
     private circleService:CircleService,
     private fb:FormBuilder,
+    private router:Router,
     @Inject(MD_DIALOG_DATA) public data: any) {
-    this.editForm();
+    this.deleteForm();
+    this.circle = this.data.circle;
   }     
 
-  editForm()  { 
-    this.editcircleform=this.fb.group({
-      keywords:this.data.circle.Keywords,
-      description:this.data.circle.Description,
+  deleteForm()  { 
+    this.deleteCircleForm=this.fb.group({
+      keywords:this.data.circle.keywords.join(','),
+      description:this.data.circle.circleDescription,
       circleName:this.data.circle.circleName
     })
   }
 
-  delCircle(){
-    this.circle = this.deleteCircle();
-    this.circleService.deleteCircle(this.circle.circleId).subscribe();
-  }
-
-  deleteCircle() {
-    const formModel = this.editcircleform.value;
-    const saveCircle= {
-      circleName: formModel.Circle as string,
-      circleDescription:formModel.description as string,
-      keywords: formModel.keywords as string[]
-    };
-    return saveCircle;
+  deleteCircle(){
+    this.dialogRef.close();
+    this.circleService.deleteCircle(this.circle.circleId).subscribe((data) => {
+      this.circleService.removeCircle(this.circle);
+      this.router.navigate(['landingpage'])});
   }
 
 }

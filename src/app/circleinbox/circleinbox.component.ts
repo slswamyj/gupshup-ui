@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges } from '@angular/core';
 import { CircleService } from '../services/circle.service';
 import {Router} from '@angular/router';
 import {ActivatedRoute,Params} from '@angular/router';
@@ -17,7 +17,7 @@ export class CircleInboxComponent {
   circle:Circle;
   username: string;
   page = 0;
-  circleName: string;
+  circleId: string;
 
   constructor(
     private circleservice : CircleService,
@@ -28,7 +28,7 @@ export class CircleInboxComponent {
 
   ngOnInit() {	
     this.route.params.switchMap((param:Params) => {
-      this.circleName = param['circle'];
+      this.circleId = param['circle'];
       return this.circleservice.getMailbox(param['circle'],this.page)})
     .subscribe((Circleinbox) => {
       this.myinbox = Circleinbox.reverse();
@@ -38,6 +38,7 @@ export class CircleInboxComponent {
       this.circleservice.getCircle(param['circle']))
     .subscribe((circle) => {
       this.circle = circle;
+      this.circle.circleId = this.circleId;
     });
 
     this.circleservice.circleMessages$.subscribe((data) => {
@@ -47,7 +48,7 @@ export class CircleInboxComponent {
     this.username = localStorage.getItem('username');
   }
 
-  openDialog() {
+  editCircle() {
     this.dialog.open(EditCircleComponent, {
       'data': {
         'circle': this.circle
@@ -66,12 +67,38 @@ export class CircleInboxComponent {
 
   getMailbox(page){
     this.page = page;
-    this.circleservice.getMailbox(this.circleName,page)
+    this.circleservice.getMailbox(this.circleId,page)
     .subscribe((Circleinbox) => {
       this.myinbox = Circleinbox.reverse();
     });
   }
 
+  deleteMail(mail) {
+    this.myinbox = this.myinbox.filter((item) => {
+      return item.mailID != mail.mailID });
+    this.circleservice.deleteMail(mail).subscribe(data => console.log(data));
+  }
+
+  leaveCircle(circleId: string ){
+    this.circleservice.leaveCircle(circleId, this.username).subscribe(data => {
+      this.circleservice.removeCircle(this.circle);    
+      this.router.navigate(['landingpage']);
+    });
+  }
+
+  formatDate(time) {
+    let temp = Math.floor((new Date().getTime() - time)/ 60000);
+    if(temp < 1) 
+      return "Just now";
+    else if(temp < 60) 
+      return temp +" min ago";
+    else if(temp < (24*60))
+      return Math.floor(temp/60)+ " hour ago";
+    else if(temp< 24*60*30)
+      return Math.floor(temp/(24*60))+ " month ago";
+    else if(temp < 24*60* 365)
+      return Math.floor(temp/(24*60*30))+" year ago";
+  }
 }
 
 

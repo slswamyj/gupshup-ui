@@ -20,7 +20,7 @@ export class UserListComponent implements OnInit{
     public dialog: MdDialog,
     private circleservice : CircleService) {
     this.circleservice.circleSelected$.subscribe((circle) => {
-      this.circleservice.getMembers(circle).subscribe((mem)=> {
+      this.circleservice.getMembers(circle.circleId).subscribe((mem)=> {
         this.members=mem;
       });
     });
