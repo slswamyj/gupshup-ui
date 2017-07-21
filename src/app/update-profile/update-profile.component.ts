@@ -25,12 +25,10 @@ export class UpdateProfileComponent implements OnInit{
               private userProfileService : UserProfileService ) { }
 
   ngOnInit() {
-    console.log('hi');
     let username : string = localStorage.getItem("username");
     this.userProfileService.getUser(username)
       .subscribe(data => {
         this.user = data;
-        console.log(data);
         this.createForm();
       });
   }
@@ -51,13 +49,14 @@ export class UpdateProfileComponent implements OnInit{
   createForm() {
     console.log(this.user);
   	this.updateForm = this.formBuilder.group ({
-      profilePhoto : [this.user.profilePhoto],
       userName : [this.user.userName],
   		firstName : [this.user.firstName, Validators.required],
-  		lastName : [this.user.lastName, Validators.required],
+  		lastName : [this.user.lastName],
   		dob : [this.user.dob, Validators.required],
-  		emailId : [this.user.emailId, [Validators.required, Validators.email] ],
-  		contactNo : [this.user.contactNo, Validators.required]
+      gender : [this.user.gender],
+  		emailId : [this.user.emailId, [Validators.required, Validators.email]],
+  		contactNo : [this.user.contactNo],
+      profilePhoto : [this.user.profilePhoto]
   		
   	});
 
@@ -71,8 +70,16 @@ export class UpdateProfileComponent implements OnInit{
   updateUser() {
     //this.submitted = true;
     this.updatedUser = this.updateForm.value;
-    this.updatedUser.gender = this.user.gender;
-    this.updatedUser.password = this.user.password;
+
+    if(this.updatedUser.lastName == null) {
+      this.updatedUser.lastName = "";
+    }
+    if(this.updatedUser.gender == null) {
+      this.updatedUser.gender = "";
+    }
+    if(this.updatedUser.contactNo == null) {
+      this.updatedUser.contactNo = "";
+    }
 
     if(this.imageUrl == null) {
       this.updatedUser.profilePhoto = this.user.profilePhoto;
@@ -80,9 +87,10 @@ export class UpdateProfileComponent implements OnInit{
     else {
       this.updatedUser.profilePhoto = this.imageUrl;
     }
-    console.log(this.user.password);
+    this.updatedUser.password = this.user.password;
+    /*console.log(this.user.password);
     console.log(this.updatedUser.profilePhoto);
-    console.log(this.updatedUser);
+    console.log(this.updatedUser);*/
 
     this.updateProfileService.updateUserProfile(this.updatedUser)
     .subscribe((msg : string) => this.message = msg);
@@ -111,18 +119,13 @@ export class UpdateProfileComponent implements OnInit{
  
   formErrors = {
     'firstName': '',
-    'lastName': '',
     'dob': '',
     'emailId': '',
-    'contactNo': ''
   };
  
   validationMessages = {
      'firstName': {
       'required': 'First Name is required.'
-    },
-    'lastName': {
-      'required': 'Last Name is required.'
     },
     'dob': {
       'required': 'Date of birth is required.'
@@ -131,8 +134,5 @@ export class UpdateProfileComponent implements OnInit{
       'required': 'Email Id is required.',
       'email': 'Email Id is incorrect.'
     },
-    'contactNo': {
-      'required': 'Contact number is required.'
-    }
   };
 }
