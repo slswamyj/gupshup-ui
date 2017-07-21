@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { User } from '../model/User';
 import { UpdateProfileService } from '../services/update-profile.service';
 import { UserProfileService } from '../services/user-profile.service';
+import { MdSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-update-profile',
@@ -22,7 +23,8 @@ export class UpdateProfileComponent implements OnInit{
 
   constructor(private formBuilder : FormBuilder,
               private updateProfileService : UpdateProfileService,
-              private userProfileService : UserProfileService ) { }
+              private userProfileService : UserProfileService,
+              private snackBar: MdSnackBar ) { }
 
   ngOnInit() {
     let username : string = localStorage.getItem("username");
@@ -93,10 +95,15 @@ export class UpdateProfileComponent implements OnInit{
     console.log(this.updatedUser);*/
 
     this.updateProfileService.updateUserProfile(this.updatedUser)
-    .subscribe((msg : string) => this.message = msg);
-      //errorMsg => this.errorMessage = errorMsg);
+    .subscribe( 
+                data => {
+                  this.snackBar.open('Updated successfully', 'Close', { duration: 4000 })
+                 },
+                 error => {
+                  this.snackBar.open(error._body, 'Close', { duration: 4000 })
+                 }
+              );
 
-    //console.log(this.errorMessage);
   }
 
   onValueChanged(data?: any) {
