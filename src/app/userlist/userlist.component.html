@@ -1,17 +1,18 @@
 <div class="user_list_div">
   <h5 class="user_heading">Members</h5>
-  <ul class="user_list" *ngFor="let items of members">
+  <ul class="user_list" *ngFor="let item of members">
     <li>
-      <a (click)="selectMember(items.memberName)">
-       <span *ngIf="items.status == 1" >
+      <a (click)="selectMember(item.username)">
+       <span *ngIf="item.status == 1" >
          <img src="/assets/images/online2.png" id="online"/>
        </span>
-       <span *ngIf="items.status != 1">
+       <span *ngIf="item.status != 1">
          &#9675;
        </span>
        &nbsp;&nbsp;
-       {{ items.username }}
+       {{ item.username }}
      </a>
    </li>
  </ul>
 </div>
+

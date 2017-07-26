@@ -3,6 +3,8 @@ import { Injectable, OnInit } from '@angular/core';
 import { StompService } from 'ng2-stomp-service';
 import { CircleService } from './circle.service';
 
+import { ChatMessage } from '../model/ChatMessage';
+
 import { Observable } from 'rxjs/Rx';
 import { Subject }    from 'rxjs/Subject';
 
@@ -12,8 +14,8 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class SocketService {
 
-  private chatMessageSource = new Subject<string>();
-  socketUrl = 'http://172.23.239.182:8022/gs-guide-websocket';
+  private chatMessageSource = new Subject<ChatMessage>();
+  socketUrl = 'http://172.23.238.203:8080/gs-guide-websocket';
 
   userSubscription: any;
   circleSubscription: any;
@@ -31,7 +33,8 @@ export class SocketService {
     this.stomp.startConnect().then(() => {
       this.stomp.done('init');
       this.userSubscription = this.stomp.subscribe('/topic/chat/'+localStorage.getItem('username'),(message) => {
-        this.chatMessageSource.next(message);
+        console.log(JSON.parse(message)['message']);
+        this.chatMessageSource.next(JSON.parse(message)['message']);
       });
     });
   }
@@ -44,9 +47,11 @@ export class SocketService {
       this.circleService.setMessage(message);
     });
   }
-
+ 
   sendMessage(userName:string, message: string) {
-    this.stomp.send('/app/chat/'+ userName,{"message":message});
+    let chatMessage = new ChatMessage(userName, localStorage.getItem('username'), message);
+    this.stomp.send('/topic/chat/'+ userName,JSON.stringify({"message": chatMessage}));
+    this.chatMessageSource.next(chatMessage);
   }
 
   logoutNotify(){

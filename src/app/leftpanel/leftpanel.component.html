@@ -1,36 +1,35 @@
-<div class="row" id="user_data">
-  <div class="user_data_div">
-    <div class="col-lg-3 user_image">
-      <img src="{{model.profilePhoto}}" 
-      class="profile_image">
-    </div><!-- user_image column end  -->
-    <div class="col-lg-8 user_name">
-      <h4>{{model.firstName}} {{model.lastName}}</h4>
-    </div><!-- user_image column end   -->
+<div id="leftpanel_wrap">
+  <div class="row" id="user_data">
+    <div class="user_data_div">
+      <div class="col-lg-3 user_image">
+        <a routerLink="/landingpage/userprofile">
+          <img src="{{ model.profilePhoto}}" 
+          class="profile_image"></a>
+        </div><!-- user_image column end  -->
+        <div class="col-lg-8 user_name">
+          <h4>{{model.firstName}} {{model.lastName}}</h4>
+        </div><!-- user_image column end   -->
+      </div>
+    </div><!-- user data row end -->
+
+    <div class="row" id="new_circle_heading_row">
+      <div class="col-lg-12" id="new_circle">
+        <a class="create_circle_link" (click)="openDialog()">
+          Create New Circle
+        </a>
+      </div>
+    </div>
+
+    <div class="row" id="channel_list_row">
+      <div class="col-lg-12" id="channel_list_column">
+        <circlelist></circlelist>
+      </div>
+    </div><!-- channels row end  -->
+
+    <div class="row" id="user_list_row">
+      <div class="col-lg-12" id="user_list_column">
+        <userlist></userlist>
+      </div>
+    </div><!-- members row end  -->
+
   </div>
-</div><!-- user data row end -->
-
-<div class="row" id="new_circle_heading_row">
-  <div class="col-lg-12" id="new_circle">
-    <a class="create_circle_link" (click)="openDialog()">
-      Create New Channel
-    </a>
-  </div>
-</div>
-
-
-<div class="row" id="channel_list_row">
-  <div class="col-lg-12" id="channel_list_column">
-    <circlelist></circlelist>
-  </div>
-</div><!-- channels row end  -->
-
-
-<div class="row" id="user_list_row">
-  <div class="col-lg-12" id="user_list_column">
-    <userlist></userlist>
-  </div>
-</div><!-- members row end  -->
-
-
-

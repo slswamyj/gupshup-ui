@@ -15,6 +15,7 @@ import { UserProfileService } from '../services/user-profile.service';
 export class SearchComponent implements OnInit{
 	
   circles: Circle[];
+  users: User[];
   user: User;
 
   constructor(
@@ -23,20 +24,37 @@ export class SearchComponent implements OnInit{
     private userProfileService: UserProfileService) {}
 
   ngOnInit() {
-    this.circleservice.suggestCircle()
-    .subscribe(data => this.circles = data);
     this.userProfileService.getUser(localStorage.getItem('username'))
-    .subscribe(data => this.user = data);
+    .subscribe(data => {
+      this.user = data;
+    });
   }
 
-  search(circleId: string) {
-    this.router.navigate(['circleinbox', circleId]);	
+  suggestUser(keywords: string){
+    this.userProfileService.suggestUser(keywords).subscribe( data => {
+      this.users = data;
+      this.users = this.users.slice(0,10);
+    });
+  }
+
+  suggestCircle(keywords: string){
+    this.circleservice.suggestCircle(keywords).subscribe( data => {
+      this.circles = data;
+      if(this.circles != null)
+        this.circles = this.circles.slice(0,10);
+    });
   }
 
   joinCircle(circle: Circle){
     this.circleservice.joinCircle(circle, this.user).subscribe( data => {
       this.circleservice.addCircle(circle);
-      console.log(data +"here");
+      console.log(data);
+    });
+  }
+
+  followUser(user: User) {
+    this.userProfileService.followUser(user.userName).subscribe( data => {
+      console.log(data);
     });
   }
 }

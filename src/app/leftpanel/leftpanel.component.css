@@ -1,3 +1,8 @@
+#leftpanel_wrap {
+  background: rgb(237, 239, 242);
+  height: 100vh;
+}
+
 #user_data {
 	margin: 0 auto;
 	/*padding-left: 15px;

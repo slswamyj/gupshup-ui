@@ -1,18 +1,19 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component, OnChanges, AfterViewChecked } from '@angular/core';
 import { CircleService } from '../services/circle.service';
-import {Router} from '@angular/router';
-import {ActivatedRoute,Params} from '@angular/router';
-import {Circle} from '../model/Circle'; 
-import {EditCircleComponent} from '../editcircle/editcircle.component';
+import { Router} from '@angular/router';
+import { ActivatedRoute,Params} from '@angular/router';
+import { Circle} from '../model/Circle'; 
+import { EditCircleComponent} from '../editcircle/editcircle.component';
 import { MdDialog, MdDialogRef } from '@angular/material';
-import {DeleteCircleComponent} from '../deletecircle/deletecircle.component';
+import { DeleteCircleComponent} from '../deletecircle/deletecircle.component';
 
 @Component({
   selector: 'circleinbox',
   templateUrl: './circleinbox.component.html',
   styleUrls: ['./circleinbox.component.css']
 })
-export class CircleInboxComponent {
+export class CircleInboxComponent implements AfterViewChecked {
+  
   myinbox:any = [];
   circle:Circle;
   username: string;
@@ -27,8 +28,10 @@ export class CircleInboxComponent {
   } 
 
   ngOnInit() {	
+
     this.route.params.switchMap((param:Params) => {
       this.circleId = param['circle'];
+      this.page = 0;
       return this.circleservice.getMailbox(param['circle'],this.page)})
     .subscribe((Circleinbox) => {
       this.myinbox = Circleinbox.reverse();
@@ -46,6 +49,11 @@ export class CircleInboxComponent {
     });
 
     this.username = localStorage.getItem('username');
+  }
+
+  ngAfterViewChecked() {
+    let msgbox = document.getElementById('inboxMessageDiv');
+    msgbox.scrollTop = msgbox.scrollHeight;
   }
 
   editCircle() {
@@ -66,11 +74,14 @@ export class CircleInboxComponent {
   }
 
   getMailbox(page){
-    this.page = page;
-    this.circleservice.getMailbox(this.circleId,page)
-    .subscribe((Circleinbox) => {
-      this.myinbox = Circleinbox.reverse();
-    });
+    if(page >= 0) {
+      this.page = page;
+      this.circleservice.getMailbox(this.circleId,page)
+      .subscribe((Circleinbox) => {
+        if(Circleinbox.length > 0)
+          this.myinbox = Circleinbox.reverse();
+      });
+    }
   }
 
   deleteMail(mail) {
@@ -95,9 +106,9 @@ export class CircleInboxComponent {
     else if(temp < (24*60))
       return Math.floor(temp/60)+ " hour ago";
     else if(temp< 24*60*30)
-      return Math.floor(temp/(24*60))+ " month ago";
+      return Math.floor(temp/(24*60))+ " days ago";
     else if(temp < 24*60* 365)
-      return Math.floor(temp/(24*60*30))+" year ago";
+      return Math.floor(temp/(24*60*30))+" months ago";
   }
 }
 

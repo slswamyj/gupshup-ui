@@ -23,12 +23,13 @@ import { CircleInboxComponent } from './circleinbox/circleinbox.component';
 import { CreateCircle } from './createcircle/createcircle.component';
 import { SearchComponent } from './search/search.component';
 import { PostComponent} from './post/post.component';
-import { ChatBoxComponent } from './chatbox/chatbox.component';
 import { InboxPanelComponent } from './inbox-panel/inbox-panel.component';
 import { HomeContentComponent } from './home-content/home-content.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { RegisterComponent } from './register/register.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { UserinboxComponent } from './userinbox/userinbox.component';
+
 
 import { CircleService} from './services/circle.service';
 import { UserProfileService } from './services/user-profile.service';
@@ -58,12 +59,12 @@ import { StompService } from 'ng2-stomp-service';
     CreateCircle,
     PostComponent,
     SearchComponent,
-    ChatBoxComponent,
     InboxPanelComponent,
     HomeContentComponent,
     HomePageComponent,
     RegisterComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    UserinboxComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +77,8 @@ import { StompService } from 'ng2-stomp-service';
   ],
   entryComponents: [
     EditCircleComponent,
-    DeleteCircleComponent
+    DeleteCircleComponent,
+    CreateCircle
   ],
   providers: [ 
     CircleService,

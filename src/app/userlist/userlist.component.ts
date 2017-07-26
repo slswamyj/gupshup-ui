@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { CircleService } from '../services/circle.service';
 import { Router } from '@angular/router';
 import { MdDialog, MdDialogRef } from '@angular/material';
-import { ChatBoxComponent } from '../chatbox/chatbox.component';
+
 @Component({
   selector: 'userlist',
   templateUrl: './userlist.component.html',
@@ -11,17 +11,14 @@ import { ChatBoxComponent } from '../chatbox/chatbox.component';
 export class UserListComponent implements OnInit{
 
   members:string[];
-  member:string[];
-  selectedOption: string;
-  
 
   constructor(
     private router : Router,
-    public dialog: MdDialog,
     private circleservice : CircleService) {
     this.circleservice.circleSelected$.subscribe((circle) => {
-      this.circleservice.getMembers(circle.circleId).subscribe((mem)=> {
-        this.members=mem;
+      this.circleservice.getMembers(circle.circleId).subscribe((members)=> {
+        this.members=members.filter( mem => mem.status == 1 && mem.username!= localStorage.getItem('username'));
+        this.members = this.members.slice(0,6);
       });
     });
   }
@@ -31,11 +28,7 @@ export class UserListComponent implements OnInit{
   }
 
   selectMember(selectedUser) {
-    this.dialog.open( ChatBoxComponent, {
-      data: {
-        'Member':selectedUser
-      }
-    });
+    this.router.navigate(['/landingpage/userdashboard/userinbox',selectedUser]);
   }
 
 }

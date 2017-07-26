@@ -1,27 +1,27 @@
 #navbar_row {
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
 #navbar_column {
-	padding: 0px;
+  padding: 0px;
 }
 
 header {
-	margin: 0px auto;
+  margin: 0px auto;
 }
 
 section {
-	margin: 0px auto;
+  margin: 0px auto;
 }
 
 .material-icons {
-	font-size: 20px;
+  font-size: 20px;
 }
 .iconsEdit {
-	margin: 20px 50px 20px 0px;
+  margin: 20px 50px 20px 0px;
 }
 .iconsDelete {
-	margin: 20px 20px 20px 0px;
+  margin: 20px 20px 20px 0px;
 }
 
 .iconsLeave{
@@ -29,11 +29,10 @@ section {
 }
 
 #inboxMessageDiv {
-	padding-top: 30px;
-	padding-left: 50px;
-	height: 575px;
-	overflow-y: scroll;
-  position: relative;
+  padding-top: 30px;
+  padding-left: 50px;
+  height: 575px;
+  overflow-y: scroll;
 }
 /* Let's get this party started */
 #inboxMessageDiv::-webkit-scrollbar {
@@ -56,55 +55,55 @@ section {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 #inboxMessageDiv::-webkit-scrollbar-thumb:window-inactive {
-	background: rgb(248,248,248); 
+  background: rgb(248,248,248); 
 }
 
 .inboxHeadingDiv {
-	padding-left: 50px;
+  padding-left: 50px;
 }
 
 #inboxMessageRow {
-	margin: 0 auto;
+  margin: 0 auto;
 }
 #postMessageRow {
-	margin: 0 auto;
+  margin: 0 auto;
 }
 #postMessageDiv {
-	padding: 0px;
+  padding: 0px;
 }
 .group_image {
-	width: 40px;
-	height: 40px;
-	border-radius: 20px 20px 20px 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px 20px 20px 20px;
 }
 .iconLink {
-	text-decoration: none;
-	color: #7f919e; 
+  text-decoration: none;
+  color: #7f919e; 
 }
 .iconLink:hover {
-	text-decoration: none;
-	color: #1976d2;
-	cursor: pointer; 
+  text-decoration: none;
+  color: #1976d2;
+  cursor: pointer; 
 }
 .user_image {
-	width: 20px;
-	height: 20px;
-	border-radius: 10px 10px 10px 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 #messageContent {
-	margin-top: 0px;
+  margin-top: 0px;
 }
 
 #msgcard{
-	height: auto;
+  height: auto;
 }
 
 .meassage {
-	width: 50%;
-	border-radius: 20px 20px 20px 20px;
-	padding: 3px 10px 3px 10px;
-	background: #D0E6FC;
+  width: 50%;
+  border-radius: 20px 20px 20px 20px;
+  padding: 3px 10px 3px 10px;
+  background: #D0E6FC;
 }
 
 .chat
@@ -116,19 +115,31 @@ section {
 
 .chat li
 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding-bottom: 5px;
-    border-bottom: 1px dotted #B3A9A9;
 }
 
 .chat li.left .chat-body
 {
-    margin-left: 60px;
+    margin-left: 5px;
 }
 
-.chat li .chat-body p
+.chat li.right .chat-body
+{
+    margin-right: 5px;
+}
+
+.chat li.right .chat-body p
 {
     margin: 0;
     color: #777777;
+    text-align: right;
 }
 
+.chat li .left .chat-body p
+{
+    text-align: left;
+    font-size: 20px;
+    margin: 0;
+    color: #777777;
+}

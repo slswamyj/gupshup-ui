@@ -1,9 +1,9 @@
 <div class="row" id="channel_recommendation_module">
   <div class="col-lg-12" id="channel_recommendation_div">
-    <h5 class="channel_name_header">Lively Channels</h5>
+    <h5 class="channel_name_header">Lively Circles</h5>
     <hr class="channel_name_header_line">
-    <div class="channel_recommendation_wrap">
-      
+    <div class="channel_recommendation_wrap" *ngFor=" let circle of circles">
+
       <div class="row" id="channel_recommendation_record">
         <div class="col-lg-3" id="group_image_div">
           <a>
@@ -11,11 +11,10 @@
             class="group_image">
           </a>
         </div>
-        <div class="col-lg-9" id="channel_name_div">
-          <a class="channel_name">Stackroute</a>
+        <div class="col-lg-9" id="channel_name_div" >
+          <a class="channel_name">{{ circle.circleName }}</a>
+          <span class="joinLink"><a (click)="joinCircle(circle)">Join</a></span>
         </div>
-
-        <span class="joinLink"><a>Join</a></span>
       </div>
 
       <hr class="channel_recomendation_line">
@@ -31,8 +30,8 @@
     <h5 class="user_name_header">Follow people around the network</h5>
     <hr class="user_name_header_line">
     
-    <div class="user_recommendation_wrap">
-      
+    <div class="user_recommendation_wrap"  *ngFor=" let user of users">
+
       <div class="row" id="user_recommendation_record">
         <div class="col-lg-3" id="user_image_div">
           <a>
@@ -40,10 +39,10 @@
             class="user_image">
           </a>
         </div>
-        <div class="col-lg-9" id="user_name_div">
-          <a class="user_name">Charu</a>
+        <div class="col-lg-9" id="user_name_div" >
+          <a class="user_name">{{user.name }}</a>
+          <span class="followLink"><a (click)="followUser(user)">Follow</a></span>
         </div>
-        <span class="followLink"><a>Follow</a></span>
       </div>
 
       <hr class="user_recomendation_line">

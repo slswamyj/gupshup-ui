@@ -26,7 +26,7 @@ export class UserService {
 	create(user: User) {
 		console.log(user);
 
-		return this.http.post('http://172.23.239.176:8080/userservice/user', user)
+		return this.http.post('http://172.23.238.204:8080/userservice/user', user)
 		.map((response: Response) => {
 			console.log(response.json());
 			return response.json();
@@ -44,7 +44,7 @@ export class UserService {
 		let body = "username="+username+"&password="+encodeURIComponent(password)+"&grant_type=password&"+
 		"client_secret=stackroute&client_id=gupshup";
 
-		this.http.post('http://172.23.239.202:9000/oauth/token', body, options)
+		this.http.post('http://172.23.238.203:9000/oauth/token', body, options)
 		.subscribe(data => {
 			console.log(data);
 			localStorage.setItem('username', username);

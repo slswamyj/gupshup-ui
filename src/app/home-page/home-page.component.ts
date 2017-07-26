@@ -10,13 +10,10 @@ import { UserService } from '../services/user.service';
 })
 
 export class HomePageComponent implements OnInit {
-  @ViewChild('openModal') openModal:ElementRef;
-
   constructor(
     private userService: UserService ){}
 
   ngOnInit(){
-    this.openModal.nativeElement.click();
   }
 
   login(username: string, password: string) {

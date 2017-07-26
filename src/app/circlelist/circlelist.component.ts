@@ -10,7 +10,6 @@ import { SocketService } from '../services/socket.service';
   templateUrl: './circlelist.component.html',
   styleUrls: ['./circlelist.component.css']
 })
-
 export class CircleListComponent implements OnInit {
 
   circles:any[];
@@ -22,20 +21,25 @@ export class CircleListComponent implements OnInit {
     public dialog: MdDialog) { }
 
   ngOnInit() {
-    let username = localStorage.getItem('username');
-    this.circleservice.getCircles(username).subscribe((circles:any[]) => {
-      this.circles = circles; });
-
+    
+    this.getUserCircles();
+    
     this.circleservice.circleAdded$.subscribe(data => {
-      this.circles.push(data);});
+      this.getUserCircles();
+    });
 
     this.circleservice.circleRemoved$.subscribe( data => {
-      this.circles = this.circles.filter( circle => circle.circleId != data.circleId);
+      this.circles = this.circles.filter( circle => circle.circleId != data.circleId).slice(0,6);
     });
   }
 
-  selectCircle(circle){
+  getUserCircles(){
+    let username = localStorage.getItem('username');
+    this.circleservice.getCircles(username).subscribe((circles:any[]) => {
+      this.circles = circles.slice(0,6); });
+  }
 
+  selectCircle(circle){
     this.socketService.subscribeCircle(circle.circleId);
     this.circleservice.selectCircle(circle);
     this.router.navigate(['/landingpage/userdashboard/circleinbox',circle.circleId]);

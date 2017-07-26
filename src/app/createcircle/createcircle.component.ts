@@ -34,7 +34,7 @@ export class CreateCircle
     this.circle = this.SaveCircle();
     this.circleService.saveCircle(this.circle)
         .subscribe(data => {
-            this.circleService.addCircle(this.circle);
+            this.circleService.addCircle(data);
             console.log(data);
          },
          error => {
@@ -56,10 +56,6 @@ export class CreateCircle
       circleMembers: []
     };
     return saveCircle;
-  }
-
-  create(circleName: string, description: string, keywords: string[]) {
-
   }
 
 }

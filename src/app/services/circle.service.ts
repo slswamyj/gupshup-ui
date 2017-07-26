@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 
 import { CreateCircle } from '../createcircle/createcircle.component';
 import { Circle } from '../model/Circle';
@@ -15,17 +15,19 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class CircleService implements OnInit{
 
+    private header: Headers;
     private selectCircleSource = new Subject<Circle>();
     private selectMemberSource = new Subject<string>();
     private addCircleSource = new Subject<Circle>();
     private removeCircleSource = new Subject<Circle>();
     private circleMessageSource = new Subject<string>();
 
-    private circleServiceUrl = 'http://172.23.239.176:8080/circleservice/circle/';
-    private mailboxServiceUrl = 'http://172.23.239.176:8080/mailboxservice/mailbox/';
-    private activityProducerUrl = 'http://172.23.239.176:8080/activityproducer/activity';
+    private circleServiceUrl = 'http://172.23.238.204:8080/circleservice/circle/';
+    private mailboxServiceUrl = 'http://172.23.238.204:8080/mailboxservice/mailbox/';
+    private activityProducerUrl = 'http://172.23.238.204:8080/activityproducer/activity';
     
-    constructor(private http: Http) { }
+    constructor(private http: Http) { 
+    }
 
     ngOnInit() {
     }
@@ -62,8 +64,8 @@ export class CircleService implements OnInit{
         .map((response) => response.json());
     }
 
-    suggestCircle() {
-        return this.http.get(this.circleServiceUrl)
+    suggestCircle(keywords:string) {
+        return this.http.get(this.circleServiceUrl+"/suggest/"+keywords)
         .map((response) => response.json());
     }
 
@@ -83,6 +85,8 @@ export class CircleService implements OnInit{
     }
 
     getCircles(username: string): Observable<any> {
+        this.header = new Headers();
+        this.header.append('Authorization', 'Bearer ' + localStorage.getItem('access_token')); 
         return this.http.get(this.circleServiceUrl + username + '/circles')
         .map((res: any) => res.json());
     }
@@ -143,9 +147,9 @@ export class CircleService implements OnInit{
                 "name": circle.circleName
             }
         };
-
         return this.http.post(this.activityProducerUrl + '/join', join)
-        .map((res:any) => res.json());
+        .map((res:any) => res.json())
+        .catch(error => Observable.of(error));
     }
 
     leaveCircle(circleId:string, userName: string) {

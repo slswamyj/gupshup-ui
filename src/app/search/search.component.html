@@ -1,23 +1,72 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="input-group">
-            <input type="text" class="form-control " placeholder="search" #circle>
-            <span class="input-group-btn"><button class="btn btn-info btn-lg" type="button"(click)=search(circle.value)><i class="glyphicon glyphicon-search"></i></button></span>
+<md-tab-group>
+    <md-tab label="Circle">
+        <br><br>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div id="imaginary_container"> 
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control"  placeholder="Search" 
+                        (keyup) = "suggestCircle(circlekeywords.value)"
+                        #circlekeywords >
+                        <span class="input-group-addon">
+                            <button (click)="suggestCircle(circlekeywords.value)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>  
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-group">
+                  <li class="list-group-item justify-content-between" *ngFor=" let circle of circles ">
+                    <span> <a [routerLink]="['/landingpage/userdashboard/circleinbox', circle.circleId ]"> 
+                    {{ circle.circleName }} </a> </span> >>>>> 
+                    {{ circle.circleDescription}}
+                    <button class="btn btn-primary pull-right" (click)=joinCircle(circle)> Join </button>
+                </li>
+                <br>
+            </ul>
+        </div>
+    </div>
+</md-tab>
+<md-tab label="User">
+ <br><br>
+ <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div id="imaginary_container"> 
+            <div class="input-group stylish-input-group">
+                <input type="text" class="form-control"  placeholder="Search" 
+                (keyup) = "suggestUser(userkeywords.value)"
+                #userkeywords >
+                <span class="input-group-addon">
+                    <button type="submit" (click)="suggestUser(userkeywords.value)">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>  
+                </span>
+            </div>
         </div>
     </div>
 </div>
-
-<br>
+<br><br>
 
 <div class="row">
     <div class="col-md-12">
         <ul class="list-group">
-          <li class="list-group-item justify-content-between" *ngFor=" let circle of circles ">
-            {{ circle.circleName}} > {{ circle.circleDescription}}
-            <button class="btn btn-primary pull-right" (click)=joinCircle(circle)>Join</button>
-        </li>
-        <br>
-    </ul>
+          <li class="list-group-item justify-content-between" 
+          *ngFor=" let user of users ">
+          {{ user.userName }}
+          <button class="btn btn-primary pull-right" (click)=followUser(user)>Follow</button>
+      </li>
+      <br>
+  </ul>
 </div>
 </div>
+</md-tab>
+<span class="example-spacer"></span>
+</md-tab-group>
+
+
 

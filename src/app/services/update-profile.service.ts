@@ -13,7 +13,7 @@ export class UpdateProfileService {
 	constructor(private http : Http) {}
 
 	updateUserProfile(user : User) : Observable<any> {
-		let url = 'http://172.23.239.176:8080/userservice/user/';		
+		let url = 'http://172.23.238.204:8080/userservice/user/';		
 		return this.http.put(url+user.userName, user)
 			.map((response : Response) => response.json());
 	}

@@ -10,8 +10,8 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class UserProfileService {
 
-	userServiceUrl = 'http://172.23.239.176:8080/userservice/user/';
-  activityProducerUrl = "http://172.23.239.176:8080/activityproducer/activity";
+	userServiceUrl = 'http://172.23.238.204:8080/userservice/user/';
+  activityProducerUrl = "http://172.23.238.204:8080/activityproducer/activity";
   
   constructor(private http : Http) { }
   
@@ -27,7 +27,11 @@ export class UserProfileService {
 
   updateUser(user : User) : Observable<any> {
     return this.http.put(this.userServiceUrl + user.userName, user)
-    .map((response : Response) => response.json());
+    .map((response : Response) => {
+      return response.json();
+    }).catch(error => {
+      return error;
+    });
   }
 
   followUser(followed: string) {
@@ -45,6 +49,7 @@ export class UserProfileService {
         "id": followed
       }
     };
+    console.log(follow);
     return this.http.post(this.activityProducerUrl + "/follow", follow)
     .map((response: Response) => response.json());
   }

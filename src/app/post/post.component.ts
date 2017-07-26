@@ -18,7 +18,6 @@ export class PostComponent {
   }
 
   sendMessage(message: string) {
-    console.log(this.circleId);
     this.circleService.postMessage(message, this.circleId)
     .subscribe((data) => {
       console.log(data);

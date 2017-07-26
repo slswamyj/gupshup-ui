@@ -1,0 +1,56 @@
+<!-- inbox header row  -->
+<div class="row" id="navbar_row">
+  <div class="col-lg-12" id="navbar_column">
+    <header class="collapse navbar-collapse navbar-default clearfix inboxHeadingDiv">
+      <section class="navbar-text navbar-left clearfix" >
+        <h3><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0RPebtJzQWUs1L1sP3dnYv5aSq2KTGk4lsKV7-QUdlVH2_D_W"
+          class="user_image">&nbsp;&nbsp;{{ chatTo }}
+        </h3>
+      </section>
+    </header><!--  header end  -->
+  </div>
+</div><!-- inbox header row end -->
+
+
+<!-- inbox message row -->
+<div class="row" id="inboxMessageRow">
+  <div class="col-lg-12" id="inboxMessageDiv">
+    <ul class="chat" *ngFor=" let message of chatMessages">
+      <li class="left clearfix" *ngIf=" message.from == chatTo && message.from != username">
+        <div class="chat-body clearfix">
+          <p>
+           {{ message.message }} 
+         </p>
+       </div>
+     </li>
+     <li class="right clearfix" *ngIf=" message.to == chatTo && message.from == username">
+      <div class="chat-body clearfix">
+        <p>
+         {{ message.message }} 
+       </p>
+     </div>
+   </li>
+ </ul>
+</div>
+</div><!-- inbox message row end -->
+
+<!-- post message row -->
+<div class="row" id="postMessageRow">
+  <div class="col-lg-12" id="postMessageDiv">
+    <div class="input-group" id="post">
+      <span class="input-group-addon glyphicon glyphicon-plus"> </span>
+      <textarea class="form-control"  placeholder="type something.."
+      (keyup.enter)="sendMessage(messagebox.value);messagebox.value=''" 
+      #messagebox>
+    </textarea> 
+    <span class="input-group-addon" id="send">
+      <a type="button" class="btn" 
+      (click)="sendMessage(messagebox.value);messagebox.value=''" >
+      <span class="glyphicon glyphicon-send"></span>
+    </a>
+  </span>
+</div>
+
+</div>
+</div><!-- post message row end -->
+
